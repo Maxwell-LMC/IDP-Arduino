@@ -9,7 +9,7 @@ void line_sensor_reading() {
 
 void serial_communication(){
 	// module to check communication across serial link
-	Serial.println('Hello World');
+	Serial.println("Hello World");
 }
 
 void loop() {
