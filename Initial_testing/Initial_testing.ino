@@ -31,6 +31,6 @@ void LED_test(){
 void loop() {
 	// put your main code here, to run repeatedly:
 	serial_communication();
-  LED_test();
-
+	LED_test();
+	line_sensor_reading();
 }
