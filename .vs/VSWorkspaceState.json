@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Initial_testing",
+    "\\Main programme",
+    "\\Main programme\\main",
+    "\\Main programme\\main\\Sensors"
   ],
-  "SelectedNode": "\\C:\\Users\\tobia\\Source\\Repos\\IDP-Arduino",
+  "SelectedNode": "\\Main programme\\main\\Sensors\\Sensors.ino",
   "PreviewInSolutionExplorer": false
 }

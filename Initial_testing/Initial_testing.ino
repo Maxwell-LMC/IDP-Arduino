@@ -1,4 +1,4 @@
-//define line1pin = A0;
+int line1pin = A0;
 float line1Value = 0;
 
 
@@ -9,7 +9,7 @@ void setup() {
 
 void line_sensor_reading() {
 	// module to read from a line sensor
-	line1Value = analogRead(A0); //line1pin);
+	line1Value = analogRead(line1pin);
 	Serial.println(line1Value);
 }
 

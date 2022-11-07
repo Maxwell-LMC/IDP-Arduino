@@ -1,10 +1,6 @@
 void setup() {
   // put your setup code here, to run once:
-
-}
-
-void move_forward() {
-	// module to move the robot forward one increment
+  Serial.begin(9600)
 }
 
 void loop() {
