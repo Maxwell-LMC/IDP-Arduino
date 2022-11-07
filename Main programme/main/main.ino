@@ -3,6 +3,10 @@ void setup() {
 
 }
 
+void move_forward() {
+	// module to move the robot forward one increment
+}
+
 void loop() {
   // put your main code here, to run repeatedly:
 
