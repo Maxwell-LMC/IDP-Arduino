@@ -12,6 +12,11 @@ void serial_communication(){
 	Serial.println("Hello World");
 }
 
+void LED_test(){
+	// module to test turning LEDs on and off
+
+}
+
 void loop() {
 	// put your main code here, to run repeatedly:
 	serial_communication();
