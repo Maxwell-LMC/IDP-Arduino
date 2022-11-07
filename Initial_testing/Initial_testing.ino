@@ -13,11 +13,15 @@ void serial_communication(){
 }
 
 void LED_test(){
-	// module to test turning LEDs on and off
-
+	digitalWrite(13, HIGH);       // sets the digital pin 13 on
+  delay(1000);                  // waits for a second
+  digitalWrite(13, LOW);        // sets the digital pin 13 off
+  delay(1000);                  // waits for a second
 }
 
 void loop() {
 	// put your main code here, to run repeatedly:
 	serial_communication();
+  LED_test();
+
 }
