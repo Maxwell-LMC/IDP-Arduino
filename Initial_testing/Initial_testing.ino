@@ -1,18 +1,16 @@
-line1pin = A0;
-int line1Value = 0;
+//define line1pin = A0;
+float line1Value = 0;
 
 
 void setup() {
 	// put your setup code here, to run once:
 	Serial.begin(9600);
-
-
 }
 
 void line_sensor_reading() {
 	// module to read from a line sensor
-	line1Value = analogRead(line1pin);
-	Serial.printLn(line1Value);
+	line1Value = analogRead(A0); //line1pin);
+	Serial.println(line1Value);
 }
 
 void serial_communication(){
@@ -30,7 +28,6 @@ void LED_test(){
 
 void loop() {
 	// put your main code here, to run repeatedly:
-	serial_communication();
-	LED_test();
 	line_sensor_reading();
+	delay(100);
 }
