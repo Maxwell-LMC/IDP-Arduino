@@ -1,10 +1,12 @@
 int lineLpin = 2;
-int lineMpin = 3;
+int lineFpin = 3;
 int lineRpin = 4;
+int lineBpin = 5;
 
 int lineLvalue = 0;
-int lineMvalue = 0;
+int lineFvalue = 0;
 int lineRvalue = 0;
+int lineBvalue = 0;
 
 int orientation = 0;
 
@@ -17,8 +19,9 @@ void setup() {
 void lineSensorsRead(){
 	// module to read from line sensors
 	lineLvalue = digitalRead(lineLpin);
-	lineMvalue = digitalRead(lineMpin);
+	lineFvalue = digitalRead(lineFpin);
 	lineRvalue = digitalRead(lineRpin);
+	lineBvalue = digitalRead(lineBpin);
 }
 
 bool onLine(int value){
@@ -29,18 +32,29 @@ bool onLine(int value){
 	return false;
 }
 
-int relativeToLine(bool onLineL, bool onLineM, bool onLineR){
+int relativeToLine(bool onLineL, bool onLineF, bool onLineR, bool onLineB){
 	// module to say which way the robot is facing
-	// returns 0 for straight, 1 for left and 2 for right
-	if (!onLineL && onLineM && !onLineR){
+	if (!onLineL && onLineF && !onLineR && onLineB){
+		// the robot is on a straight line returns 0
 		return 0;
-	} else if (onLineL && onLineM && !onLineR){
-		return 2;
-	} else if (!onLineL && onLineM && onLineR){
+	} else if (onLineL && onLineF && !onLineR && onLineB){
+		// the robot is on a left branch
 		return 1;
+	} else if (!onLineL && onLineF && onLineR && onLineB) {
+		// the robot is on a right branch
+		return 2;
+	} else if (onLineL && onLineF && onLineR && onLineB) {
+		// the robot is on a cross
+		return 3;
+	} else if (!onLineL && onLineB && onLineR){
+		// the robot is facing too far left
+		return 4;
+	} else if (onLineL && onLineB && !onLineR) {
+		// the robot is facing too far right
+		return 5;
 	}
 	Serial.println("unknown orientation");
-	return 3;
+	return 1000;
 }
 
 void responseToOrientation(int o){
@@ -51,11 +65,23 @@ void responseToOrientation(int o){
 			Serial.println("Straight");
 			break;
 		case 1:
-			// if the robot is left
-			Serial.println("Left");
+			// if the robot is at a left branch
+			Serial.println("Left branch");
 			break;
 		case 2:
-			// if the robot is right
+			// if the robot is at a right branch
+			Serial.println("Right branch");
+			break;
+		case 3:
+			// if the robot is at a cross
+			Serial.println("Cross");
+			break;
+		case 4:
+			// if the robot is too far left
+			Serial.println("Left");
+			break;
+		case 5:
+			// if the robot is too far right
 			Serial.println("Right");
 			break;
 		default:
@@ -71,10 +97,12 @@ void loop() {
 	lineSensorsRead();
 	Serial.print(lineLvalue);
 	Serial.print(" ");
-	Serial.print(lineMvalue);
+	Serial.print(lineFvalue);
 	Serial.print(" ");
-	Serial.println(lineRvalue);
-	delay(100);
-	orientation = relativeToLine(onLine(lineLvalue), onLine(lineMvalue), onLine(lineRvalue));
+	Serial.print(lineRvalue);
+	Serial.print(" ");
+	Serial.println(lineBvalue);
+	delay(300);
+	orientation = relativeToLine(onLine(lineLvalue), onLine(lineFvalue), onLine(lineRvalue), onLine(lineBvalue));
 	responseToOrientation(orientation);
 }
