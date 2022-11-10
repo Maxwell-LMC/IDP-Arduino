@@ -12,10 +12,9 @@ void setup() {
 void loop() {
 	// put your main code here, to run repeatedly:
 	// will start the program when the button is pressed
-	// while (analogRead(start_button) == 0) {};
-	// Serial.println("Button Pressed");
-  Serial.println(addTwoInts(1,2));
-  delay(1000);
+	while (analogRead(start_button) == 0) {};
+	Serial.println("Button Pressed");
 
+  
 
 }
