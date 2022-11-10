@@ -5,8 +5,8 @@
 
 int addTwoInts(int a, int b);
 
-extern int lineFpin, int lineLpin, int lineRpin, int lineBpin;
-extern int lineLvalue, int lineFvalue, int lineRvalue, int lineBvalue;
+extern int lineFpin, lineLpin, lineRpin, lineBpin;
+extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
 extern int orientation;
 
 #endif
