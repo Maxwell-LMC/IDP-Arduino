@@ -30,5 +30,15 @@ bool onLine(int value) {
 
 int lineInformation(bool onLineL, bool onLineF, bool onLineR, bool onLineB) {
 	// module to tell the relative position to the line
-
+	if (onLineF && !(onLineL || onLineR)) {
+		// the robot is straight
+		return 1;
+	}
+	else if (onLineF && onLineL && onLineR) {
+		// the robot is at a crossing
+		return 2;
+	}
+	else {
+		return 0;
+	}
 }
