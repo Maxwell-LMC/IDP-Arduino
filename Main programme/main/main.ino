@@ -63,7 +63,8 @@ void loop() {
 	
 	// will start the program when the button is pressed
 	while (!pressed) {
-    if (analogRead(start_button) == 1){
+    Serial.println(digitalRead(start_button));
+    if (digitalRead(start_button) == 0){
       pressed = true;
     }
   };
