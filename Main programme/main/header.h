@@ -2,6 +2,10 @@
 #define header
 
 #include <Arduino.h>
+#include <Wire.h>
+#include <Adafruit_MotorShield.h>
+#include <Servo.h>
+#include "utility/Adafruit_MS_PWMServoDriver.h"
 
 extern int lineFpin, lineLpin, lineRpin, lineBpin;
 extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
