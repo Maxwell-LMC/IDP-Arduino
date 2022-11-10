@@ -2,6 +2,7 @@
 
 
 int start_button = 13;
+bool pressed = false;
 
 void lineFollowing() {
 	while (true) {
@@ -14,39 +15,39 @@ void lineFollowing() {
 			break;
 		case 1:
 			// the robot is at a crossing
-			Serial.printLn("Crossing");
+			Serial.println("Crossing");
 			break;
 		case 2:
 			// the robot is at a right branch
-			Serial.printLn("Right Branch");
+			Serial.println("Right Branch");
 			break;
 		case 3:
 			// the robot is at a left branch
-			Serial.printLn("Left Branch");
+			Serial.println("Left Branch");
 			break;
 		case 4:
 			// the robot is straight
-			Serial.printLn("Straight");
+			Serial.println("Straight");
 			forward();
 			break;
 		case 5:
 			// robot is too far right
-			Serial.printLn("Too Far Right");
+			Serial.println("Too Far Right");
 			leftAdjust();
 			break;
 		case 6:
 			// robot is too far left
-			Serial.printLn("Too Far Left");
+			Serial.println("Too Far Left");
 			rightAdjust();
 			break;
 		case 7:
 			// the robot needs to go further forwards
-			Serial.printLn("Needs to go further forwards");
+			Serial.println("Needs to go further forwards");
 			forward();
 			break;
 		case 8:
 			// the robot needs to begin the tunnel process
-			Serial.printLn("Tunnel");
+			Serial.println("Tunnel");
 			break;
 		}
 	}
@@ -61,9 +62,11 @@ void loop() {
 	// put your main code here, to run repeatedly:
 	
 	// will start the program when the button is pressed
-	while (analogRead(start_button) == 0) {};
-	Serial.println("Button Pressed");
-
-  
-
+	while (!pressed) {
+    if (analogRead(start_button) == 1){
+      pressed = true;
+    }
+  };
+	Serial.println("Button Pressed");  
+  lineFollowing();
 }

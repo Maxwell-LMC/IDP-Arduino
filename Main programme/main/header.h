@@ -20,5 +20,6 @@ void left90();
 void uTurn();
 void rightAdjust();
 void leftAdjust();
+void getLineInformation();
 
 #endif
