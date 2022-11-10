@@ -20,15 +20,33 @@ void backward(){
 }
 
 void right90(){
-  //need testing
+  LeftMotor->setSpeed(255);
+  RightMotor->SetSpeed(255);
+  LeftMotor->run(FORWARD);
+  RightMotor->run(BACKWARD);
+  delay(3000);
+  LeftMotor->run(RELEASE);
+  RightMotor->run(RELEASE);
 }
 
 void left90(){
-  //need testing
+  LeftMotor->setSpeed(255);
+  RightMotor->SetSpeed(255);
+  LeftMotor->run(BACKWARD);
+  RightMotor->run(FORWARD);
+  delay(3000);
+  LeftMotor->run(RELEASE);
+  RightMotor->run(RELEASE);
 }
 
 void uTurn(){
-  //need testing
+  LeftMotor->setSpeed(255);
+  RightMotor->SetSpeed(255);
+  LeftMotor->run(FORWARD);
+  RightMotor->run(BACKWARD);
+  delay(6000);
+  LeftMotor->run(RELEASE);
+  RightMotor->run(RELEASE);
 }
 
 void rightAdjust(){
