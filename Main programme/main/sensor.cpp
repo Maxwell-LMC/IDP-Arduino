@@ -30,15 +30,41 @@ bool onLine(int value) {
 
 int lineInformation(bool onLineL, bool onLineF, bool onLineR, bool onLineB) {
 	// module to tell the relative position to the line
-	if (onLineF && !(onLineL || onLineR)) {
-		// the robot is straight
-		return 1;
+	if (onLineF) {
+		if (onLineL || onLineR) {
+			if (onLineL && onLineR) {
+				// the robot is at a crossing
+			}
+			else {
+				if (onLineR) {
+					// the robot is at a right branch
+				}
+				else {
+					// the robot is at a left branch
+				}
+			}
+		}
+		else {
+			// the robot is straight
+		}
+
+	} else {
+		if (onLineB) {
+			if (onLineR) {
+				// the robot is too far right
+			}
+			else {
+				if (onLineL) {
+					// the robot is too far left
+				}
+				else {
+					// needs to go further forward
+				}
+			}
+		}
+		else {
+			// begin to do tunnel process
+		}
 	}
-	else if (onLineF && onLineL && onLineR) {
-		// the robot is at a crossing
-		return 2;
-	}
-	else {
-		return 0;
-	}
+	return 0;
 }
