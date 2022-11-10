@@ -34,37 +34,50 @@ int lineInformation(bool onLineL, bool onLineF, bool onLineR, bool onLineB) {
 		if (onLineL || onLineR) {
 			if (onLineL && onLineR) {
 				// the robot is at a crossing
+				return 1;
 			}
 			else {
 				if (onLineR) {
 					// the robot is at a right branch
+					return 2;
 				}
 				else {
 					// the robot is at a left branch
+					return 3;
 				}
 			}
 		}
 		else {
 			// the robot is straight
+			return 4;
 		}
 
 	} else {
 		if (onLineB) {
 			if (onLineR) {
 				// the robot is too far right
+				return 5;
 			}
 			else {
 				if (onLineL) {
 					// the robot is too far left
+					return 6;
 				}
 				else {
 					// needs to go further forward
+					return 7;
 				}
 			}
 		}
 		else {
 			// begin to do tunnel process
+			return 8;
 		}
 	}
 	return 0;
+}
+
+void getLineInformation() {
+	lineSensorsRead();
+	orientation = lineInformation(onLine(lineLvalue), onLine(lineFvalue), onLine(lineRvalue), onLine(lineBvalue));
 }
