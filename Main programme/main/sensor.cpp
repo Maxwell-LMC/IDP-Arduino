@@ -26,4 +26,7 @@ bool onLine(int value) {
 	return false;
 }
 
-int lineInformation(bool onLineL, bool onLineF, bool onLineR, bool onLineB)
+int lineInformation(bool onLineL, bool onLineF, bool onLineR, bool onLineB) {
+	// module to tell the relative position to the line
+
+}
