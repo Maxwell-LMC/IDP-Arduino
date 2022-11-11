@@ -11,6 +11,8 @@ extern int lineFpin, lineLpin, lineRpin, lineBpin;
 extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
 extern int orientation;
 
+extern Adafruit_MotorShield AFMS;
+
 
 //movement functions
 void forward();
@@ -21,5 +23,6 @@ void uTurn();
 void rightAdjust();
 void leftAdjust();
 void getLineInformation();
+void lineFollowing();
 
 #endif
