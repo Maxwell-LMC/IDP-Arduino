@@ -4,7 +4,6 @@
 // int start_button = 13;
 // bool pressed = false;
 
-
 void setup() {
 	Serial.begin(9600);
   AFMS.begin();
@@ -12,7 +11,8 @@ void setup() {
 
 void loop() {
 	// put your main code here, to run repeatedly:
-	lineFollowing();
-
+  navigateToBlock();
+  grab();
+  backToBase();
 
 }
