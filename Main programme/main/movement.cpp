@@ -8,13 +8,15 @@ Servo myservo;
 
 int tooRight[4] = {0,0,0,1};
 int tooLeft[4] = {0,0,1,0};
-int straight[4] = {1,1,0,0};
+int very_straight[4] = {1,1,0,0};
 int stray[4] = {0,0,0,0};
+int oriented_right[4] = {1,0,1,0};
+int oriented_left[4] = {1,0,0,1};
 
 
 void forward(){
-  LeftMotor->setSpeed(255);
-  RightMotor->setSpeed(255);
+  LeftMotor->setSpeed(150);
+  RightMotor->setSpeed(150);
   LeftMotor->run(FORWARD);
   RightMotor->run(FORWARD);
 }
@@ -57,16 +59,17 @@ void uTurn(){
 }
 
 void rightAdjust(){
-  LeftMotor->setSpeed(255);
-  RightMotor->setSpeed(100);
+  LeftMotor->setSpeed(150);
+  RightMotor->setSpeed(150);
   LeftMotor->run(FORWARD);
-  RightMotor->run(FORWARD);
+  RightMotor->run(BACKWARD);
+  
 }
 
 void leftAdjust(){
-  LeftMotor->setSpeed(100);
-  RightMotor->setSpeed(255);
-  LeftMotor->run(FORWARD);
+  LeftMotor->setSpeed(150);
+  RightMotor->setSpeed(150);
+  LeftMotor->run(BACKWARD);
   RightMotor->run(FORWARD);
 
 }
@@ -79,7 +82,7 @@ void halt(){
 }
 
 void lineFollowing() {
-  if(compare_array(orientation, straight)){
+  if(compare_array(orientation, very_straight)){
     forward();
   }
   else if(compare_array(orientation, tooRight)){
@@ -89,5 +92,15 @@ void lineFollowing() {
     rightAdjust();
   }
   else if(compare_array(orientation, stray)){
+  }
+  else if(compare_array(orientation, oriented_right)){
+    forward();
+    delay(500);
+    leftAdjust();
+  }
+  else if(compare_array(orientation, oriented_left)){
+    forward();
+    delay(500);
+    rightAdjust();
   }
 }
