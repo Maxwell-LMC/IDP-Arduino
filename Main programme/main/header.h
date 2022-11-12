@@ -11,8 +11,7 @@ using namespace std;
 
 extern int lineFpin, lineLpin, lineRpin, lineBpin;
 extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
-extern int orientation[4];
-extern int previous_orientation[4];
+extern string orientation, string previous_orientation;
 
 extern Adafruit_MotorShield AFMS;
 
@@ -25,6 +24,7 @@ void left90();
 void uTurn();
 void rightAdjust();
 void leftAdjust();
+void halt();
 
 //sensor functions
 void lineFollowing();
@@ -36,6 +36,6 @@ void grab();
 void backToBase();
 
 //utils
-bool compare_array(int a[4], int b[4]);
+
 
 #endif

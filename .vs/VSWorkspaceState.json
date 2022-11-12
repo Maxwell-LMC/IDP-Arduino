@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Initial_testing",
+    "\\Initial_testing\\motor_testing",
     "\\Initial_testing\\Sensors",
     "\\Initial_testing\\Servo_testing",
     "\\Main programme",
     "\\Main programme\\main"
   ],
-  "SelectedNode": "\\Initial_testing\\Sensors\\Sensors.ino",
+  "SelectedNode": "\\Main programme\\main\\navigation.cpp",
   "PreviewInSolutionExplorer": false
 }

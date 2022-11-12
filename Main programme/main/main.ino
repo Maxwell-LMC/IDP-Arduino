@@ -6,13 +6,12 @@
 
 void setup() {
 	Serial.begin(9600);
-  AFMS.begin();
+	AFMS.begin();
 }
 
 void loop() {
 	// put your main code here, to run repeatedly:
-  navigateToBlock();
-  grab();
-  backToBase();
-
+	while (true) { 
+		lineFollowing();
+	}
 }

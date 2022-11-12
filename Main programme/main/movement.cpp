@@ -6,13 +6,6 @@ Adafruit_DCMotor *LeftMotor = AFMS.getMotor(2);
 Adafruit_DCMotor *RightMotor = AFMS.getMotor(1);
 Servo myservo;
 
-int tooRight[4] = {0,0,0,1};
-int tooLeft[4] = {0,0,1,0};
-int very_straight[4] = {1,1,0,0};
-int stray[4] = {0,0,0,0};
-int oriented_right[4] = {1,0,1,0};
-int oriented_left[4] = {1,0,0,1};
-
 
 void forward(){
   LeftMotor->setSpeed(150);
@@ -81,26 +74,3 @@ void halt(){
   RightMotor->run(RELEASE);
 }
 
-void lineFollowing() {
-  if(compare_array(orientation, very_straight)){
-    forward();
-  }
-  else if(compare_array(orientation, tooRight)){
-    leftAdjust();
-  }
-  else if(compare_array(orientation, tooLeft)){
-    rightAdjust();
-  }
-  else if(compare_array(orientation, stray)){
-  }
-  else if(compare_array(orientation, oriented_right)){
-    forward();
-    delay(500);
-    leftAdjust();
-  }
-  else if(compare_array(orientation, oriented_left)){
-    forward();
-    delay(500);
-    rightAdjust();
-  }
-}
