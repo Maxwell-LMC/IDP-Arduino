@@ -36,6 +36,7 @@ void lineFollowing() {
             forward();
             delay(500);
             rightAdjust();
+            break;
         }
     }
 }
