@@ -28,6 +28,7 @@ void halt();
 //sensor functions
 void lineFollowing();
 void lineSensorsRead();
+void getOrientation();
 
 //higher-level modules
 void grab();
