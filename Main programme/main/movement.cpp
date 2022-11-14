@@ -8,17 +8,17 @@ Servo myservo;
 
 
 void forward(){
-  LeftMotor->setSpeed(150);
-  RightMotor->setSpeed(150);
+  LeftMotor->setSpeed(255);
+  RightMotor->setSpeed(255);
   LeftMotor->run(FORWARD);
   RightMotor->run(FORWARD);
 }
 
 void backward(){
-  LeftMotor->setSpeed(50);
-  RightMotor->setSpeed(50);
-  LeftMotor->run(FORWARD);
-  RightMotor->run(FORWARD);
+  LeftMotor->setSpeed(150);
+  RightMotor->setSpeed(150);
+  LeftMotor->run(BACKWARD);
+  RightMotor->run(BACKWARD);
 }
 
 void right90(){
@@ -52,16 +52,16 @@ void uTurn(){
 }
 
 void rightAdjust(){
-  LeftMotor->setSpeed(150);
-  RightMotor->setSpeed(150);
+  LeftMotor->setSpeed(255);
+  RightMotor->setSpeed(255);
   LeftMotor->run(FORWARD);
   RightMotor->run(BACKWARD);
   
 }
 
 void leftAdjust(){
-  LeftMotor->setSpeed(150);
-  RightMotor->setSpeed(150);
+  LeftMotor->setSpeed(255);
+  RightMotor->setSpeed(255);
   LeftMotor->run(BACKWARD);
   RightMotor->run(FORWARD);
 

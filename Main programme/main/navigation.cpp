@@ -8,33 +8,19 @@ void lineFollowing() {
             Serial.println("Not a recognised orientation");
             Serial.println(orientation);
             break;
-        case 12:
-            // straight 1100
+        case 0:
+            // straight 0000
             Serial.println("Straight");
             forward();
             break;
-        case 1:
-            // too far right 0001
+        case 8:
+            // too far right 1000
             Serial.println("Too far right");
             leftAdjust();
             break;
-        case 2:
-            // too far left 0010
+        case 4:
+            // too far left 0100
             Serial.println("Too far left");
-            rightAdjust();
-            break;
-        case 10:
-            // oriented right 1010
-            Serial.println("Oriented right");
-            forward();
-            delay(500);
-            leftAdjust();
-            break;
-        case 9:
-            // oriented left 1001
-            Serial.println("Oriented left");
-            forward();
-            delay(500);
             rightAdjust();
             break;
         }
