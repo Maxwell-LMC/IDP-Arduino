@@ -2,7 +2,6 @@
 #define header
 
 #include <Arduino.h>
-#include <string.h>
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 #include <Servo.h>
@@ -11,7 +10,7 @@ using namespace std;
 
 extern int lineFpin, lineLpin, lineRpin, lineBpin;
 extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
-extern string orientation, string previous_orientation;
+extern int orientation, previous_orientation;
 
 extern Adafruit_MotorShield AFMS;
 
@@ -31,9 +30,7 @@ void lineFollowing();
 void lineSensorsRead();
 
 //higher-level modules
-void navigateToBlock();
 void grab();
-void backToBase();
 
 //utils
 

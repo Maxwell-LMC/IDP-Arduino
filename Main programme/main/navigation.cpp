@@ -6,32 +6,32 @@ void lineFollowing() {
         switch (orientation) {
         default:
             Serial.println("Not a recognised orientation");
-            Serial.println(orientation)
+            Serial.println(orientation);
             break;
-        case "1100":
-            // straight
+        case 12:
+            // straight 1100
             Serial.println("Straight");
             forward();
             break;
-        case "0001":
-            // too far right
+        case 1:
+            // too far right 0001
             Serial.println("Too far right");
             leftAdjust();
             break;
-        case "0010":
-            // too far left
+        case 2:
+            // too far left 0010
             Serial.println("Too far left");
             rightAdjust();
             break;
-        case "1010":
-            // oriented right
+        case 10:
+            // oriented right 1010
             Serial.println("Oriented right");
             forward();
             delay(500);
             leftAdjust();
             break;
-        case "1001":
-            // oriented left
+        case 9:
+            // oriented left 1001
             Serial.println("Oriented left");
             forward();
             delay(500);
