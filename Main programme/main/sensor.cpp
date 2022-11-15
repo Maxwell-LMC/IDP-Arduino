@@ -22,6 +22,5 @@ void lineSensorsRead() {
 }
 
 void getOrientation() {
-	lineSensorsRead();
 	orientation = 8*lineFLvalue + 4*lineFRvalue + 2*lineBLvalue + lineBRvalue;
 }

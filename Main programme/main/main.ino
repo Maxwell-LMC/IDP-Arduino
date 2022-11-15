@@ -12,9 +12,8 @@ void setup() {
 void loop() {
 	// put your main code here, to run repeatedly:
 	while (true) {
-    lineSensorsRead();
-    getOrientation(); 
+		lineSensorsRead();
+		getOrientation(); 
 		lineFollowing();
-		Serial.println(orientation);
 	}
 }
