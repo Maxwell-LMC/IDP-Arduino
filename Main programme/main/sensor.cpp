@@ -1,9 +1,9 @@
 #include "header.h"
 
-int lineFLpin = 2;
+int lineFLpin = 5;
 int lineFRpin = 3;
-int lineBLpin = 4;
-int lineBRpin = 5;
+int lineBLpin = 2;
+int lineBRpin = 4;
 
 int lineFLvalue = 0;
 int lineFRvalue = 0;
