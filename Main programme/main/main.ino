@@ -11,6 +11,7 @@ void setup() {
 
 void loop() {
 	// put your main code here, to run repeatedly:
+	GOAL = PICKUP2;
 	while (true) {
 		lineSensorsRead();
 		getOrientation(); 

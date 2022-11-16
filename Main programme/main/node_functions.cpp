@@ -1,27 +1,27 @@
-// #include "header.h"
+#include "header.h"
 
-// void nodeFunctions(board_nodes node) {
-// 	switch (node) {
-// 	case START_SQUARE:
-// 		cout << "start square" << endl;
-// 		break;
-// 	case GREEN_SQUARE:
-// 		cout << "green square" << endl;
-// 		break;
-// 	case TUNNEL:
-// 		cout << "tunnel" << endl;
-// 		break;
-// 	case PICKUP1:
-// 		cout << "pick up 1" << endl;
-// 		break;
-// 	case PICKUP2:
-// 		cout << "pick up 2" << endl;
-// 		break;
-// 	case PICKUP3:
-// 		cout << "pick up 3" << endl;
-// 		break;
-// 	case RED_SQUARE:
-// 		cout << "red square" << endl;
-// 		break;
-// 	}
-// }
+void nodeFunctions(board_nodes node) {
+	switch (node) {
+	case START_SQUARE:
+		Serial.println("start square");
+		break;
+	case GREEN_SQUARE:
+		Serial.println("green square");
+		break;
+	case TUNNEL:
+		Serial.println("tunnel");
+		break;
+	case PICKUP1:
+		Serial.println("pick up 1");
+		break;
+	case PICKUP2:
+		Serial.println("pick up 2");
+		break;
+	case PICKUP3:
+		Serial.println("pick up 3");
+		break;
+	case RED_SQUARE:
+		Serial.println("red square");
+		break;
+	}
+}

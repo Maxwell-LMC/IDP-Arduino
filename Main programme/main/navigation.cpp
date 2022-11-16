@@ -26,6 +26,7 @@ void lineFollowing() {
             break;
         case 12:
             //left branch 1100
+            map.next
             break;
 
         case 3:
