@@ -5,9 +5,9 @@
 
 Servo servo;
 int feedbackPin = A0;
-float vol, sum, avg;
-float threshold_coarse = 50;
-float threshold_dense = 100;
+float vol, avg, sum;
+float threshold_coarse = 7;
+float threshold_dense = 30;
 
 void setup() {
   Serial.begin(9600);
@@ -15,11 +15,12 @@ void setup() {
 }
 
 void loop() {
-  servo.write(100); //relaxed position
+  servo.write(150); //relaxed position
   delay(3000);
-  servo.write(150); //grabbed position
-  delay(1000);
-  for(int i = 1; i <= 20; i++){
+  servo.write(100); //grabbed position
+  delay(2000);
+  sum = 0;
+  for(int i = 1; i <= 50; i++){
     vol = analogRead(feedbackPin);
     sum += vol;
     Serial.print("Average: ");
@@ -27,12 +28,12 @@ void loop() {
     Serial.print(" Instant: ");
     Serial.print(vol);
     Serial.print("\n");
-    delay(250);
+    delay(100);
   }
-  if((sum/20)> threshold_dense){
+  if((sum/50)> threshold_dense){
       Serial.println("Result: Dense");
   }
-  else if(sum > threshold_coarse){
+  else if((sum /50 )> threshold_coarse){
       Serial.println("Result: Coarse");
   }
   else{
