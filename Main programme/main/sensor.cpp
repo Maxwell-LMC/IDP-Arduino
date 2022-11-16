@@ -1,26 +1,26 @@
 #include "header.h"
 
-int lineFLpin = 5;
-int lineFRpin = 3;
-int lineBLpin = 2;
-int lineBRpin = 4;
+int lineLpin = 3;
+int lineRpin = 5;
+int lineLLpin = 2;
+int lineRRpin = 4;
 
-int lineFLvalue = 0;
-int lineFRvalue = 0;
-int lineBLvalue = 0;
-int lineBRvalue = 0;
+int lineLvalue = 0;
+int lineRvalue = 0;
+int lineLLvalue = 0;
+int lineRRvalue = 0;
 
 int orientation = 0;
 int previous_orientation = 0;
 
 void lineSensorsRead() {
 	// module to read from line sensors
-	lineFLvalue = digitalRead(lineFLpin);
-	lineFRvalue = digitalRead(lineFRpin);
-	lineBLvalue = digitalRead(lineBLpin);
-	lineBRvalue = digitalRead(lineBRpin);
+	lineLvalue = digitalRead(lineLpin);
+	lineRvalue = digitalRead(lineRpin);
+	lineLLvalue = digitalRead(lineLLpin);
+	lineRRvalue = digitalRead(lineRRpin);
 }
 
 void getOrientation() {
-	orientation = 8*lineFLvalue + 4*lineFRvalue + 2*lineBLvalue + lineBRvalue;
+	orientation = 8*lineLLvalue + 4*lineLvalue + 2*lineRvalue + lineRRvalue;
 }

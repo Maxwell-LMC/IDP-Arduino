@@ -8,10 +8,10 @@
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 using namespace std;
 
-extern int lineFpin, lineLpin, lineRpin, lineBpin;
-extern int lineLvalue, lineFvalue, lineRvalue, lineBvalue;
+extern int lineLLpin, lineLpin, lineRpin, lineRRpin;
+extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
-extern enum board_nodes;
+// extern enum board_nodes;
 
 extern Adafruit_MotorShield AFMS;
 
