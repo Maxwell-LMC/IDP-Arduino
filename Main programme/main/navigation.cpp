@@ -43,7 +43,7 @@ void lineFollowing() {
             board.next_node_function_run();
             break;
         case 15:
-            //cross
+            //cross 1111
             board.next_node_function_run();
             break;
         }
