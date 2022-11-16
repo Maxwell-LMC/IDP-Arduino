@@ -1,6 +1,6 @@
 #include "header.h"
 
-void nodeFunctions(board_nodes node) {
+void nodeFunctions(int node) {
 	switch (node) {
 	case START_SQUARE:
 		Serial.println("start square");

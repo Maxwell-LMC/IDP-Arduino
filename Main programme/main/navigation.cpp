@@ -24,16 +24,27 @@ void lineFollowing() {
             Serial.println("Too far left");
             rightAdjust();
             break;
+        case 1:
+            // way too far right 0001
+            Serial.println("Way too far right");
+            leftAdjust();
+            break;
+        case 8:
+            // way too far left 1000
+            Serial.println("Way too far left");
+            rightAdjust();
+            break;
         case 12:
             //left branch 1100
-            map.next
+            board.next_node_function_run();
             break;
-
         case 3:
             //right branch 0011
+            board.next_node_function_run();
             break;
         case 15:
             //cross
+            board.next_node_function_run();
             break;
         }
     }
