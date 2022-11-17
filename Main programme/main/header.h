@@ -18,11 +18,12 @@ extern int orientation, previous_orientation;
 //motor initialisation
 extern Adafruit_MotorShield AFMS;
 extern Servo servo;
+extern ezButton toggleSwitch;
 
-enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
-const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
+enum board_nodes { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
+const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
-// Node classes
+// Node class
 class Node {
 public:
 	board_nodes name = START_SQUARE;
@@ -30,17 +31,11 @@ public:
 	int next = NULL;
 };
 
-extern int GOAL;
-
-// node functions
-void node_functions(int node);
-
-
-// linked list functions
+// linked list class
 class linkedList {
 public:
-	Node list[7];
-	int length = 7;
+	Node list[6];
+	int length = 6;
 	int current = 0;
 
 	linkedList();
@@ -51,6 +46,12 @@ public:
 	void node_function();
 	void next_node_function_run();
 };
+
+
+extern int GOAL;
+
+// node functions
+void nodeFunctions(int node);
 
 
 extern linkedList board;
@@ -71,6 +72,8 @@ void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
 
+
+bool switch_pushed();
 
 void grab();
 

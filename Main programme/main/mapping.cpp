@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 linkedList::linkedList() {
 	for (int i = 0; i < length; i++) {
 		list[i].name = board_nodes_list[i];
@@ -34,7 +33,7 @@ Node linkedList::current_node() {
 }
 
 void linkedList::node_function() {
-	node_functions(list[current].name);
+	nodeFunctions(list[current].name);
 }
 
 void linkedList::next_node_function_run() {

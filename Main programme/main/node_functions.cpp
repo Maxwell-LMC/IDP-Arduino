@@ -8,9 +8,9 @@ void nodeFunctions(int node) {
 	case GREEN_SQUARE:
 		Serial.println("green square");
 		break;
-	case TUNNEL:
+	/*case TUNNEL:
 		Serial.println("tunnel");
-		break;
+		break;*/
 	case PICKUP1:
 		Serial.println("pick up 1");
 		break;
