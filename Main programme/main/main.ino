@@ -8,6 +8,7 @@ void setup() {
 	Serial.begin(9600);
 	AFMS.begin();
   servo.attach(10);
+  toggleSwitch.setDebounceTime(50); 
 }
 
 void loop() {

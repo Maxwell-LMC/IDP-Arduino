@@ -6,6 +6,8 @@
 #include <Adafruit_MotorShield.h>
 #include <Servo.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
+#include <ezButton.h>
+
 using namespace std;
 
 
