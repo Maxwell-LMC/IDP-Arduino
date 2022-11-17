@@ -1,5 +1,5 @@
-#ifndef header
-#define header
+#ifndef HEADER_H
+#define HEADER_H
 
 #include <Arduino.h>
 #include <Wire.h>
