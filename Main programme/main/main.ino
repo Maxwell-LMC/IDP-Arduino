@@ -4,6 +4,9 @@
 // int start_button = 13;
 // bool pressed = false;
 
+linkedList board;
+int GOAL = START_SQUARE;
+
 void setup() {
 	Serial.begin(9600);
 	AFMS.begin();

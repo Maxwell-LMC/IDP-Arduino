@@ -18,7 +18,7 @@ extern Adafruit_MotorShield AFMS;
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
-// linked list classes
+// Node classes
 class Node {
 public:
 	board_nodes name = START_SQUARE;
@@ -26,6 +26,13 @@ public:
 	int next = NULL;
 };
 
+extern int GOAL;
+
+// node functions
+void node_functions(int node);
+
+
+// linked list functions
 class linkedList {
 public:
 	Node list[7];
@@ -42,8 +49,8 @@ public:
 };
 
 
-extern int GOAL;
-linkedList board;
+extern linkedList board;
+
 
 //movement functions
 void forward();
@@ -60,8 +67,6 @@ void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
 
-// node functions
-void node_functions(int node);
 
 void grab();
 
