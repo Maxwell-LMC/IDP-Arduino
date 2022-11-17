@@ -4,7 +4,6 @@
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
 Adafruit_DCMotor *LeftMotor = AFMS.getMotor(2);
 Adafruit_DCMotor *RightMotor = AFMS.getMotor(1);
-Servo myservo;
 
 
 void forward(){
