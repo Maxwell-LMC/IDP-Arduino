@@ -7,6 +7,7 @@
 void setup() {
 	Serial.begin(9600);
 	AFMS.begin();
+  servo.attach(10);
 }
 
 void loop() {

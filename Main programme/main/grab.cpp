@@ -6,12 +6,7 @@ float vol, avg, sum;
 float threshold_coarse = 7;
 float threshold_dense = 30;
 
-void setup() {
-  Serial.begin(9600);
-  servo.attach(10);
-}
-
-void loop() {
+void grab(){
   servo.write(150); //relaxed position
   delay(3000);
   servo.write(100); //grabbed position

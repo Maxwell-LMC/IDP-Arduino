@@ -8,12 +8,14 @@
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 using namespace std;
 
+
 extern int lineLLpin, lineLpin, lineRpin, lineRRpin;
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
 
-
+//motor initialisation
 extern Adafruit_MotorShield AFMS;
+extern Servo servo;
 
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
