@@ -20,25 +20,6 @@ void backward(){
   RightMotor->run(BACKWARD);
 }
 
-void right90(){
-  LeftMotor->setSpeed(50);
-  RightMotor->setSpeed(50);
-  LeftMotor->run(BACKWARD);
-  RightMotor->run(FORWARD);
-  delay(3000);
-  LeftMotor->run(RELEASE);
-  RightMotor->run(RELEASE);
-}
-
-void left90(){
-  LeftMotor->setSpeed(50);
-  RightMotor->setSpeed(50);
-  LeftMotor->run(FORWARD);
-  RightMotor->run(BACKWARD);
-  delay(3000);
-  LeftMotor->run(RELEASE);
-  RightMotor->run(RELEASE);
-}
 
 void uTurn(){
   LeftMotor->setSpeed(50);

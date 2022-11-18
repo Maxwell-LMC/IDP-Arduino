@@ -45,8 +45,6 @@ void lineFollowing() {
             break;*/
         case 12:
         case 3:
-        case 7:
-        case 14:
         case 15:
             //cross 1111
             board.next_node_function_run();

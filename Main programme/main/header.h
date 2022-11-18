@@ -19,6 +19,8 @@ extern int orientation, previous_orientation;
 extern Adafruit_MotorShield AFMS;
 extern Servo servo;
 extern ezButton toggleSwitch;
+extern Adafruit_DCMotor *LeftMotor;
+extern Adafruit_DCMotor* RightMotor;
 
 enum board_nodes { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };

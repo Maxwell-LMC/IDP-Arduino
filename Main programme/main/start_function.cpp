@@ -10,6 +10,7 @@ void getToLine() {
         default:
             Serial.println("Not a recognised orientation");
             Serial.println(orientation);
+            forward();
             break;
         case 0:
             // straight 0000
@@ -40,13 +41,17 @@ void getToLine() {
             Serial.println("Too far left");
             rightAdjust();
             break;
-
+        
+        case 7:
+        case 13:
         case 15:
             // found line 1111
             if (found_line) {
                 at_line = true;
             }
             found_line = true;
+            forward();
+            delay(500);
             break;
         }
     }
@@ -55,6 +60,7 @@ void getToLine() {
 void startRoutine() {
     found_line = false;
     at_line = false;
+    forward();
 	while (!at_line) {
 		lineSensorsRead();
 		getOrientation();
@@ -68,5 +74,5 @@ void startRoutine() {
         // turn left
         left90();
     }
-
+    Serial.println("start routine done");
 }

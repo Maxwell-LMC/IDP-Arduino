@@ -19,6 +19,7 @@ void setup() {
 void robotMain(){
 	GOAL = PICKUP2;
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
+	startRoutine();
 	while (true) {
 		lineSensorsRead();
 		getOrientation(); 
@@ -29,5 +30,6 @@ void robotMain(){
 void loop() {
 	// put your main code here, to run repeatedly:
 	while(!switch_pushed()){}
+	Serial.println("START");
 	robotMain();
 }
