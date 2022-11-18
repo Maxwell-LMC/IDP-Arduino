@@ -49,6 +49,7 @@ void linkedList::next_node_function_run() {
 	get_next_node();
 	if (current == GOAL) {
 		node_function();
+		halt();
 		delay(10000);
 	}
 	else {
