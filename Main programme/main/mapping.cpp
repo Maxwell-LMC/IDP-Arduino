@@ -28,6 +28,15 @@ Node linkedList::previous_node() {
 	return list[current];
 }
 
+Node linkedList::get_next_node() {
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		return next_node();
+	}
+	else if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
+		return previous_node();
+	}
+}
+
 Node linkedList::current_node() {
 	return list[current];
 }
@@ -37,9 +46,12 @@ void linkedList::node_function() {
 }
 
 void linkedList::next_node_function_run() {
-	next_node();
+	get_next_node();
 	if (current == GOAL) {
 		node_function();
 		delay(10000);
+	}
+	else {
+		forward();
 	}
 }

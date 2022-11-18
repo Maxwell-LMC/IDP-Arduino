@@ -23,6 +23,11 @@ extern ezButton toggleSwitch;
 enum board_nodes { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
+
+extern int GOAL;
+enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
+extern DIRECTION CURRENT_DIRECTION;
+
 // Node class
 class Node {
 public:
@@ -33,6 +38,9 @@ public:
 
 // linked list class
 class linkedList {
+private:
+	Node next_node();
+	Node previous_node();
 public:
 	Node list[6];
 	int length = 6;
@@ -40,18 +48,15 @@ public:
 
 	linkedList();
 
-	Node next_node();
-	Node previous_node();
 	Node current_node();
 	void node_function();
 	void next_node_function_run();
+	Node get_next_node();
 };
-
-
-extern int GOAL;
 
 // node functions
 void nodeFunctions(int node);
+void getToLine();
 
 
 extern linkedList board;
@@ -71,6 +76,9 @@ void halt();
 void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
+
+void startRoutine();
+void getToLine();
 
 
 bool switch_pushed();

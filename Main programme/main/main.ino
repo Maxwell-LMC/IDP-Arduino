@@ -6,17 +6,19 @@
 
 linkedList board;
 int GOAL = START_SQUARE;
+DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
 
 void setup() {
 	Serial.begin(9600);
 	AFMS.begin();
-  servo.attach(10);
-  ezButton(7);
-  toggleSwitch.setDebounceTime(50); 
+	servo.attach(10);
+	ezButton(7);
+	toggleSwitch.setDebounceTime(50); 
 }
 
 void robotMain(){
-  GOAL = PICKUP2;
+	GOAL = PICKUP2;
+	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	while (true) {
 		lineSensorsRead();
 		getOrientation(); 
@@ -26,6 +28,6 @@ void robotMain(){
 
 void loop() {
 	// put your main code here, to run repeatedly:
-  while(!switch_pushed()){}
-  robotMain();
+	while(!switch_pushed()){}
+	robotMain();
 }

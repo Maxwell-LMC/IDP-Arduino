@@ -25,3 +25,5 @@ void nodeFunctions(int node) {
 		break;
 	}
 }
+
+void getToLine(int direction) {};
