@@ -4,7 +4,7 @@ linkedList::linkedList() {
 	for (int i = 0; i < length; i++) {
 		list[i].name = board_nodes_list[i];
 		if (i == 0) {
-			list[i].previous = length;
+			list[i].previous = length-1;
 		}
 		else {
 			list[i].previous = i - 1;

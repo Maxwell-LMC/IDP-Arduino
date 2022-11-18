@@ -15,9 +15,9 @@ void setup() {
 }
 
 void loop() {
-  servo.write(150); //relaxed position
+  servo.write(0); //relaxed position
   delay(3000);
-  servo.write(100); //grabbed position
+  servo.write(180); //grabbed position
   delay(2000);
   sum = 0;
   for(int i = 1; i <= 50; i++){
