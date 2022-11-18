@@ -15,23 +15,16 @@ linkedList::linkedList() {
 		else {
 			list[i].next = i + 1;
 		}
-		Serial.println(list[i].previous);
-		Serial.println(list[i].name);
-		Serial.println(list[i].next);
 	}
 }
 
 Node linkedList::next_node() {
 	current = list[current].next;
-  Serial.println("next");
 	return list[current];
 }
 
 Node linkedList::previous_node() {
-
-  Serial.println(current);
 	current = list[current].previous;
-  Serial.println(current);
 	return list[current];
 }
 
@@ -58,8 +51,9 @@ void linkedList::next_node_function_run() {
 		node_function();
 		halt();
 		delay(10000);
-	}
-	else {
-		forward();
-	}
+    forward();
+    delay(500);
+	} else {
+	  forward();
+    }
 }
