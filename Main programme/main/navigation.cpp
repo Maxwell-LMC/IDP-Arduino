@@ -35,17 +35,23 @@ void lineFollowing() {
             rightAdjust();
             break;
 
-        case 12:
+        /*case 12:
             //left branch 1100
             board.next_node_function_run();
             break;
         case 3:
             //right branch 0011
             board.next_node_function_run();
-            break;
+            break;*/
+        case 12:
+        case 3:
+        case 7:
+        case 14:
         case 15:
             //cross 1111
             board.next_node_function_run();
+            Serial.println(GOAL);
+            Serial.println(board.current);
             break;
         }
     }

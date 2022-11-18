@@ -20,11 +20,15 @@ linkedList::linkedList() {
 
 Node linkedList::next_node() {
 	current = list[current].next;
+  Serial.println("next");
 	return list[current];
 }
 
 Node linkedList::previous_node() {
+
+  Serial.println(current);
 	current = list[current].previous;
+  Serial.println(current);
 	return list[current];
 }
 
