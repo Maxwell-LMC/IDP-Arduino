@@ -15,6 +15,9 @@ linkedList::linkedList() {
 		else {
 			list[i].next = i + 1;
 		}
+		Serial.println(list[i].previous);
+		Serial.println(list[i].name);
+		Serial.println(list[i].next);
 	}
 }
 
