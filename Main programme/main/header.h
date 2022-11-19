@@ -26,6 +26,7 @@ enum board_nodes { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQ
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
 
+extern bool done;
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
@@ -78,6 +79,7 @@ void halt();
 void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
+void directionToGoal();
 
 void startRoutine();
 void getToLine();
@@ -86,6 +88,7 @@ void getToLine();
 bool switch_pushed();
 
 void grab();
+void drop();
 
 //utils
 

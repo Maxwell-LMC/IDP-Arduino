@@ -55,3 +55,19 @@ void lineFollowing() {
     }
 }
 
+void directionToGoal() {
+    if (GOAL == START_SQUARE) {
+        if (board.current > board.length / 2) {
+            CURRENT_DIRECTION = CLOCKWISE;
+        }
+        else {
+            CURRENT_DIRECTION = ANTI_CLOCKWISE;
+        }
+    } 
+    else if (GOAL < board.current) {
+        CURRENT_DIRECTION = ANTI_CLOCKWISE;
+    }
+    else {
+        CURRENT_DIRECTION = CLOCKWISE;
+    }
+}

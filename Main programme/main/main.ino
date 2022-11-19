@@ -7,6 +7,7 @@
 linkedList board;
 int GOAL = START_SQUARE;
 DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
+bool done = false;
 
 void setup() {
 	Serial.begin(9600);
@@ -20,7 +21,7 @@ void robotMain(){
 	GOAL = PICKUP2;
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
-	while (true) {
+	while (!done) {
 		lineSensorsRead();
 		getOrientation(); 
 		lineFollowing();

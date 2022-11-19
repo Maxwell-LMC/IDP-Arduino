@@ -24,11 +24,15 @@ void grab(){
   }
   if((sum/50)> threshold_dense){
       Serial.println("Result: Dense");
+      GOAL = RED_SQUARE;
   }
   else if((sum/50)> threshold_coarse){
       Serial.println("Result: Coarse");
+      GOAL = GREEN_SQUARE;
   }
   else{
       Serial.println("No block detected");
   }
 }
+
+void drop() {}
