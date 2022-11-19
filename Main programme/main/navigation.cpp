@@ -35,18 +35,14 @@ void lineFollowing() {
             rightAdjust();
             break;
 
-        /*case 12:
-            //left branch 1100
-            board.next_node_function_run();
-            break;
-        case 3:
-            //right branch 0011
-            board.next_node_function_run();
-            break;*/
-        case 12:
-        case 3:
         case 15:
             //cross 1111
+            // way to make sure the robot position is correct
+            board.current = PICKUP2;
+        case 12:
+            //left branch 1100
+        case 3:
+            //right branch 0011
             board.next_node_function_run();
             Serial.println(GOAL);
             Serial.println(board.current);
