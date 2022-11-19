@@ -7,6 +7,7 @@
 linkedList board;
 int GOAL = START_SQUARE;
 DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
+pickupOrderGenerator pickupOrder;
 bool done = false;
 
 void setup() {

@@ -1,5 +1,10 @@
 #include "header.h"
 
+
+pickupOrderGenerator::next_goal() {
+	GOAL = order_list[++current];
+}
+
 void nodeFunctions(int node) {
 	switch (node) {
 	case START_SQUARE:
@@ -76,6 +81,7 @@ void dropoffRedOrGreen() {
 	backward();
 	delay(100);
 	uTurn();
+	pickupOrder.nextGoal();
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
