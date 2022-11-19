@@ -1,8 +1,54 @@
 #include "header.h"
 
 
-pickupOrderGenerator::next_goal() {
+void pickupOrderGenerator::next_goal() {
 	GOAL = order_list[++current];
+}
+
+void pickup1or3() {
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		right90();
+	}
+	else {
+		left90();
+	}
+	forward();
+	delay(500);
+	halt();
+	grab();
+	uTurn();
+	directionToGoal();
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		right90();
+	}
+	else {
+		left90();
+	}
+}
+
+void dropoffRedOrGreen() {
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		left90();
+	}
+	else {
+		right90();
+	}
+	forward();
+	delay(500);
+	halt();
+	drop();
+	backward();
+	delay(100);
+	uTurn();
+	pickupOrder.next_goal();
+	directionToGoal();
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		right90();
+	}
+	else {
+		left90();
+	}
+	getToLine();
 }
 
 void nodeFunctions(int node) {
@@ -44,50 +90,4 @@ void nodeFunctions(int node) {
 		dropoffRedOrGreen();
 		break;
 	}
-}
-
-void pickup1or3() {
-	if (CURRENT_DIRECTION == CLOCKWISE) {
-		right90();
-	}
-	else {
-		left90();
-	}
-	forward();
-	delay(500);
-	halt();
-	grab();
-	uTurn();
-	directionToGoal();
-	if (CURRENT_DIRECTION == CLOCKWISE) {
-		right90();
-	}
-	else {
-		left90();
-	}
-}
-
-void dropoffRedOrGreen() {
-	if (CURRENT_DIRECTION == CLOCKWISE) {
-		left90();
-	}
-	else {
-		right90();
-	}
-	forward();
-	delay(500);
-	halt();
-	drop();
-	backward();
-	delay(100);
-	uTurn();
-	pickupOrder.nextGoal();
-	directionToGoal();
-	if (CURRENT_DIRECTION == CLOCKWISE) {
-		right90();
-	}
-	else {
-		left90();
-	}
-	getToLine();
 }
