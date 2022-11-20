@@ -67,6 +67,7 @@ private:
 	int current = 0;
 public:
 	void next_goal();
+	int goal_x(int n);
 };
 
 

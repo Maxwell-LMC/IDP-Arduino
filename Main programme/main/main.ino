@@ -19,7 +19,7 @@ void setup() {
 }
 
 void robotMain(){
-	GOAL = PICKUP2;
+	GOAL = pickupOrder.goal_x(0);
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
 	while (!done) {

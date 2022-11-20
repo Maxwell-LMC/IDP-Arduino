@@ -5,6 +5,10 @@ void pickupOrderGenerator::next_goal() {
 	GOAL = order_list[++current];
 }
 
+int pickupOrderGenerator::goal_x(int n) {
+	return order_list[n];
+}
+
 void pickup1or3() {
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
