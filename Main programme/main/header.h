@@ -30,7 +30,7 @@ extern int orientation, previous_orientation;
 extern Adafruit_MotorShield AFMS;
 extern Servo servo;
 extern ezButton toggleSwitch;
-extern Adafruit_DCMotor *LeftMotor;
+extern Adafruit_DCMotor* LeftMotor;
 extern Adafruit_DCMotor* RightMotor;
 extern Chrono timer;
 
@@ -79,7 +79,7 @@ void toLine();
 
 class pickupOrderGenerator {
 private:
-	int order_list[4] {PICKUP2, PICKUP3, PICKUP1, START_SQUARE};
+	int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
 	int current = 0;
 public:
 	void next_goal();

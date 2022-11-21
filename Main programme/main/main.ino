@@ -17,28 +17,28 @@ void setup() {
 	AFMS.begin();
 	servo.attach(10);
 	ezButton(7);
-	toggleSwitch.setDebounceTime(50); 
-  pinMode(ultrasonic_trigpin, OUTPUT);
-  pinMode(ultrasonic_echopin, INPUT);
 	toggleSwitch.setDebounceTime(50);
-  pinMode(greenLEDpin, OUTPUT);
-  pinMode(redLEDpin, OUTPUT);
+	pinMode(ultrasonic_trigpin, OUTPUT);
+	pinMode(ultrasonic_echopin, INPUT);
+	toggleSwitch.setDebounceTime(50);
+	pinMode(greenLEDpin, OUTPUT);
+	pinMode(redLEDpin, OUTPUT);
 }
 
-void robotMain(){
+void robotMain() {
 	GOAL = pickupOrder.goal_zero();
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
 	while (!done) {
-    lineSensorsRead();
-    getOrientation(); 
-    lineFollowing();
+		lineSensorsRead();
+		getOrientation();
+		lineFollowing();
 	}
 }
 
 void loop() {
 	// put your main code here, to run repeatedly:
-	while(!switch_pushed()){}
+	while (!switch_pushed()) {}
 	Serial.println("START");
 	robotMain();
 }

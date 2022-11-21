@@ -75,7 +75,7 @@ void nodeFunctions(int node) {
 		break;
 	case TUNNEL:
 		Serial.println("tunnel");
-    tunnel();
+		tunnel();
 		break;
 	case PICKUP1:
 		Serial.println("pick up 1");
