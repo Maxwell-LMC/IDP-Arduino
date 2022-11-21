@@ -44,7 +44,16 @@ void lineFollowing() {
             //left branch 1100
         case 3:
             //right branch 0011
+<<<<<<< HEAD
             board.next_node_function_run();
+=======
+            if (timer.hasPassed(3000)) {
+                board.next_node_function_run();
+                Serial.println(GOAL);
+                Serial.println(board.current);
+                timer.restart();
+            }
+>>>>>>> 27e3e68f55775d8db2763af3f8a008e71ee6889e
             break;
         case 16:
             //tunnel

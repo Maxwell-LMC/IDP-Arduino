@@ -10,14 +10,20 @@ DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
 pickupOrderGenerator pickupOrder;
 bool done = false;
 
+Chrono timer;
+
 void setup() {
 	Serial.begin(9600);
 	AFMS.begin();
 	servo.attach(10);
 	ezButton(7);
+<<<<<<< HEAD
 	toggleSwitch.setDebounceTime(50); 
   pinMode(ultrasonic_trigpin, OUTPUT);
   pinMode(ultrasonic_echopin, INPUT);
+=======
+	toggleSwitch.setDebounceTime(50);
+>>>>>>> 27e3e68f55775d8db2763af3f8a008e71ee6889e
 }
 
 void robotMain(){

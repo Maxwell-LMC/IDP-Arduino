@@ -7,6 +7,7 @@
 #include <Servo.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 #include <ezButton.h>
+#include <Chrono.h>
 
 #define lineLpin 3
 #define lineRpin 5
@@ -26,6 +27,7 @@ extern Servo servo;
 extern ezButton toggleSwitch;
 extern Adafruit_DCMotor *LeftMotor;
 extern Adafruit_DCMotor* RightMotor;
+extern Chrono timer;
 
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
