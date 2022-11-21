@@ -47,6 +47,11 @@ void linkedList::node_function() {
 
 void linkedList::next_node_function_run() {
 	get_next_node();
+	if (orientation == 15) {
+		board.current == PICKUP2;
+	} else if (orientation == 16) {
+		board.current == TUNNEL;
+	}
 	if (current == GOAL) {
 		node_function();
     forward();
