@@ -75,4 +75,5 @@ void startRoutine() {
         left90();
     }
     Serial.println("start routine done");
+    timer.restart();
 }

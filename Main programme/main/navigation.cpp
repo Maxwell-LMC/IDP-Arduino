@@ -43,9 +43,12 @@ void lineFollowing() {
             //left branch 1100
         case 3:
             //right branch 0011
-            board.next_node_function_run();
-            Serial.println(GOAL);
-            Serial.println(board.current);
+            if (timer.hasPassed(3000)) {
+                board.next_node_function_run();
+                Serial.println(GOAL);
+                Serial.println(board.current);
+                timer.restart();
+            }
             break;
         }
     }
