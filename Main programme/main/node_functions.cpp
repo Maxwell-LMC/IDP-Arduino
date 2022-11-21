@@ -10,6 +10,8 @@ int pickupOrderGenerator::goal_zero() {
 }
 
 void pickup1or3() {
+	forward();
+	delay(650);
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
 	}
@@ -20,7 +22,8 @@ void pickup1or3() {
 	delay(500);
 	halt();
 	grab();
-	uTurn();
+	backward();
+	delay(500);
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
@@ -31,6 +34,8 @@ void pickup1or3() {
 }
 
 void dropoffRedOrGreen() {
+	forward();
+	delay(650);
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		left90();
 	}
@@ -38,21 +43,15 @@ void dropoffRedOrGreen() {
 		right90();
 	}
 	forward();
-	delay(500);
+	delay(2200);
 	halt();
 	drop();
 	backward();
-	delay(100);
+	delay(600);
 	uTurn();
 	pickupOrder.next_goal();
 	directionToGoal();
-	if (CURRENT_DIRECTION == CLOCKWISE) {
-		right90();
-	}
-	else {
-		left90();
-	}
-	getToLine();
+	toLine();
 }
 
 void nodeFunctions(int node) {

@@ -6,7 +6,7 @@ float vol, avg, sum;
 float threshold_coarse = 7;
 float threshold_dense = 30;
 
-void grab(){
+/*void grab() {
   servo.write(150); //relaxed position
   delay(3000);
   servo.write(100); //grabbed position
@@ -33,9 +33,13 @@ void grab(){
   else{
       Serial.println("No block detected");
   }
+} */
+
+void grab() {
+    GOAL = RED_SQUARE;
 }
 
 void drop() {
-    servo.write(150);
-    delay(3000);
+    //servo.write(150);
+    //delay(3000);
 }

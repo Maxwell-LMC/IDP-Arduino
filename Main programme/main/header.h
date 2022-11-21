@@ -31,6 +31,9 @@ extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
 
+extern bool found_line;
+extern bool at_line;
+
 // Node class
 class Node {
 public:
@@ -60,6 +63,7 @@ public:
 // node functions
 void nodeFunctions(int node);
 void getToLine();
+void toLine();
 
 class pickupOrderGenerator {
 private:

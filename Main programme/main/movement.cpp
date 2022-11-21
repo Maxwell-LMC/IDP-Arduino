@@ -5,6 +5,13 @@ Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 Adafruit_DCMotor *LeftMotor = AFMS.getMotor(2);
 Adafruit_DCMotor *RightMotor = AFMS.getMotor(1);
 
+void stopMotors(){
+	LeftMotor->setSpeed(0);
+	RightMotor->setSpeed(0);
+	LeftMotor->run(RELEASE);
+	RightMotor->run(RELEASE);
+}
+
 
 void forward(){
   LeftMotor->setSpeed(255);
@@ -20,16 +27,6 @@ void backward(){
   RightMotor->run(BACKWARD);
 }
 
-
-void uTurn(){
-  LeftMotor->setSpeed(50);
-  RightMotor->setSpeed(50);
-  LeftMotor->run(FORWARD);
-  RightMotor->run(BACKWARD);
-  delay(6000);
-  LeftMotor->run(RELEASE);
-  RightMotor->run(RELEASE);
-}
 
 void rightAdjust(){
   LeftMotor->setSpeed(255);
@@ -48,9 +45,6 @@ void leftAdjust(){
 }
 
 void halt(){
-  LeftMotor->setSpeed(0);
-  RightMotor->setSpeed(0);
-  LeftMotor->run(RELEASE);
-  RightMotor->run(RELEASE);
+	stopMotors();
 }
 
