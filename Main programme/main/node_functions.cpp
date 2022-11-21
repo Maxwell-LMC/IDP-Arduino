@@ -5,8 +5,8 @@ void pickupOrderGenerator::next_goal() {
 	GOAL = order_list[++current];
 }
 
-int pickupOrderGenerator::goal_x(int n) {
-	return order_list[n];
+int pickupOrderGenerator::goal_zero() {
+	return order_list[0];
 }
 
 void pickup1or3() {
