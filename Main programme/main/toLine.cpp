@@ -42,7 +42,7 @@ void uTurn() {
 	LeftMotor->run(FORWARD);
 	RightMotor->run(BACKWARD);
 	int orientations[6] = { 1, 2, 0 , 1, 2, 0};
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 6; i++) {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
