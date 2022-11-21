@@ -35,4 +35,7 @@ void grab(){
   }
 }
 
-void drop() {}
+void drop() {
+    servo.write(150);
+    delay(3000);
+}
