@@ -8,10 +8,15 @@
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 #include <ezButton.h>
 
-using namespace std;
+#define lineLpin 3
+#define lineRpin 5
+#define lineLLpin 2
+#define lineRRpin 4
+#define ultrasonic_echopin 8
+#define ultrasonic_trigpin 9
+#define topIRpin A1
+#define frontIRpin A2
 
-
-extern int lineLLpin, lineLpin, lineRpin, lineRRpin;
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
 
@@ -22,8 +27,8 @@ extern ezButton toggleSwitch;
 extern Adafruit_DCMotor *LeftMotor;
 extern Adafruit_DCMotor* RightMotor;
 
-enum board_nodes { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
-const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
+enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
+const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
 
 extern bool done;
@@ -48,8 +53,8 @@ private:
 	Node next_node();
 	Node previous_node();
 public:
-	Node list[6];
-	int length = 6;
+	Node list[7];
+	int length = 7;
 	int current = 0;
 
 	linkedList();
@@ -94,6 +99,10 @@ void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
 void directionToGoal();
+int topIRBlocked(float threshold);
+int frontIRBlocked(float threshold);
+float UltrasonicDistance();
+void tunnel();
 
 void startRoutine();
 void getToLine();

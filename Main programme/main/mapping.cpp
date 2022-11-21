@@ -42,7 +42,7 @@ Node linkedList::current_node() {
 }
 
 void linkedList::node_function() {
-	nodeFunctions(list[current].name);
+	nodeFunctions(list[current].name);  
 }
 
 void linkedList::next_node_function_run() {

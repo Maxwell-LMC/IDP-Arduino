@@ -73,9 +73,10 @@ void nodeFunctions(int node) {
 		Serial.println("green square");
 		dropoffRedOrGreen();
 		break;
-	/*case TUNNEL:
+	case TUNNEL:
 		Serial.println("tunnel");
-		break;*/
+    tunnel();
+		break;
 	case PICKUP1:
 		Serial.println("pick up 1");
 		pickup1or3();

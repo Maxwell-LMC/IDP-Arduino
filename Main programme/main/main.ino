@@ -16,6 +16,8 @@ void setup() {
 	servo.attach(10);
 	ezButton(7);
 	toggleSwitch.setDebounceTime(50); 
+  pinMode(ultrasonic_trigpin, OUTPUT);
+  pinMode(ultrasonic_echopin, INPUT);
 }
 
 void robotMain(){
@@ -23,9 +25,9 @@ void robotMain(){
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
 	while (!done) {
-		lineSensorsRead();
-		getOrientation(); 
-		lineFollowing();
+    lineSensorsRead();
+    getOrientation(); 
+    lineFollowing();
 	}
 }
 
