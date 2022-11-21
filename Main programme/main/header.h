@@ -17,6 +17,11 @@
 #define ultrasonic_trigpin 9
 #define topIRpin A1
 #define frontIRpin A2
+#define greenLEDpin 12
+#define redLEDpin 13
+#define servo_open 0
+#define servo_close 100
+#define servo_up 180
 
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
@@ -105,6 +110,7 @@ int topIRBlocked(float threshold);
 int frontIRBlocked(float threshold);
 float UltrasonicDistance();
 void tunnel();
+void diff_block();
 
 void startRoutine();
 void getToLine();
