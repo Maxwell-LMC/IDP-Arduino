@@ -15,7 +15,6 @@
 #define lineRRpin 4
 #define ultrasonic_echopin 8
 #define ultrasonic_trigpin 9
-#define movingLEDpin 10
 #define feedbackPin A0
 #define topIRpin A1
 #define frontIRpin A2
@@ -27,6 +26,7 @@
 #define topIRthres 50
 #define lower_threshold 7
 #define higher_threshold 8
+#define board_length 7
 
 
 #define blink_interval 500
@@ -51,8 +51,6 @@ extern bool done;
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
-extern int previousTime, currentTime;
-extern int LEDstate;
 
 extern bool found_line;
 extern bool at_line;
@@ -71,8 +69,8 @@ private:
 	Node next_node();
 	Node previous_node();
 public:
-	Node list[7];
-	int length = 7;
+	Node list[board_length];
+	int length = board_length;
 	int current = 0;
 
 	linkedList();
@@ -125,14 +123,15 @@ void diff_block();
 
 void startRoutine();
 void getToLine();
-void LEDswitch();
 
 bool switch_pushed();
 
 void grab();
 void drop();
 
-//utils
+void pickup1or3();
+void pickup2();
+void dropoffRedOrGreen();
 
 
 #endif

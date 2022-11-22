@@ -14,11 +14,6 @@ void stopMotors() {
 
 
 void forward() {
-  currentTime = millis();
-  if(currentTime - previousTime >= blink_interval){
-    previousTime = currentTime;
-    LEDswitch();
-  }
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(FORWARD);
@@ -26,12 +21,6 @@ void forward() {
 }
 
 void backward() {
-
-  currentTime = millis();
-  if(currentTime - previousTime >= blink_interval){
-    previousTime = currentTime;
-    LEDswitch();
-  }
 	LeftMotor->setSpeed(150);
 	RightMotor->setSpeed(150);
 	LeftMotor->run(BACKWARD);
@@ -40,11 +29,6 @@ void backward() {
 
 
 void rightAdjust() {
-  currentTime = millis();
-  if(currentTime - previousTime >= blink_interval){
-    previousTime = currentTime;
-    LEDswitch();
-  }
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(FORWARD);
@@ -53,11 +37,6 @@ void rightAdjust() {
 }
 
 void leftAdjust() {
-  currentTime = millis();
-  if(currentTime - previousTime >= blink_interval){
-    previousTime = currentTime;
-    LEDswitch();
-  }
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(BACKWARD);

@@ -19,13 +19,7 @@ void lineSensorsRead() {
 }
 
 void getOrientation() {
-  currentTime = millis();
-  if(currentTime - previousTime >= blink_interval){
-    previousTime = currentTime;
-    LEDswitch();
-  }
 	orientation = 16 * topIRBlocked() + 8 * lineLLvalue + 4 * lineLvalue + 2 * lineRvalue + lineRRvalue;
-  Serial.println(orientation);
 	orientation = (orientation >= 16) ? 16 : orientation;
 }
 
@@ -37,7 +31,7 @@ int topIRBlocked() {
 
 int frontIRBlocked() {
 	float volts = analogRead(frontIRpin) * 0.0048828125;
-  float distance = 65 * pow(volts, -1.10);
+	float distance = 65 * pow(volts, -1.10);
 	return (distance < frontIRthres) ? 1 : 0;
 }
 

@@ -33,6 +33,19 @@ void pickup1or3() {
 	}
 }
 
+void pickup2() {
+	forward();
+	halt();
+	grab();
+	directionToGoal();
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		right90();
+	}
+	else {
+		left90();
+	}
+}
+
 void dropoffRedOrGreen() {
 	forward();
 	delay(670);
@@ -83,7 +96,7 @@ void nodeFunctions(int node) {
 		break;
 	case PICKUP2:
 		Serial.println("pick up 2");
-		grab();
+		pickup2();
 		break;
 	case PICKUP3:
 		Serial.println("pick up 3");

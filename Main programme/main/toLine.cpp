@@ -1,7 +1,6 @@
 #include "header.h"
 
 void right90() {
-  digitalWrite(movingLEDpin, HIGH);
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(BACKWARD);
@@ -13,16 +12,13 @@ void right90() {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
-			Serial.print(orientation);
 		}
 	}
-  digitalWrite(movingLEDpin, LOW);
 	LeftMotor->run(RELEASE);
 	RightMotor->run(RELEASE);
 }
 
 void left90() {
-  digitalWrite(movingLEDpin, HIGH);
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(FORWARD);
@@ -32,10 +28,8 @@ void left90() {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
-			Serial.print(orientation);
 		}
 	}
-  digitalWrite(movingLEDpin, LOW);
 	LeftMotor->run(RELEASE);
 	RightMotor->run(RELEASE);
 }
@@ -50,10 +44,8 @@ void uTurn() {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
-			Serial.print(orientation);
 		}
 	}
-  digitalWrite(movingLEDpin, LOW);
 	LeftMotor->run(RELEASE);
 	RightMotor->run(RELEASE);
 }

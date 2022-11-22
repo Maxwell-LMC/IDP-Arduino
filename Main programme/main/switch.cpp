@@ -10,14 +10,3 @@ bool switch_pushed() {
 	if (switch_state == HIGH) return false;
 	else return true;
 }
-
-void LEDswitch(){
-  if(LEDstate == LOW){
-    LEDstate = HIGH;
-    digitalWrite(movingLEDpin, HIGH);
-  }
-  else{
-    LEDstate = LOW;
-    digitalWrite(movingLEDpin, LOW);
-  }
-}

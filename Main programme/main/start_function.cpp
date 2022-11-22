@@ -26,7 +26,6 @@ void getToLine() {
 			// semi way too far right 1100
 
 			// action for case 4, 8 and 12
-			Serial.println("Too far right");
 			leftAdjust();
 			break;
 
@@ -38,7 +37,6 @@ void getToLine() {
 			// semi way too far right 0011
 
 			// action for case 1, 2 and 3
-			Serial.println("Too far left");
 			rightAdjust();
 			break;
 
@@ -65,7 +63,6 @@ void startRoutine() {
 
 		lineSensorsRead();
 		getOrientation();
-    Serial.println(orientation);
 		getToLine();
 
 	}
