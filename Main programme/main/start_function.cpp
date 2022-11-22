@@ -62,9 +62,12 @@ void startRoutine() {
 	at_line = false;
 	forward();
 	while (!at_line) {
+
 		lineSensorsRead();
 		getOrientation();
+    Serial.println(orientation);
 		getToLine();
+
 	}
 	if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
 		// turn right

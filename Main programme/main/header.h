@@ -15,16 +15,25 @@
 #define lineRRpin 4
 #define ultrasonic_echopin 8
 #define ultrasonic_trigpin 9
+#define movingLEDpin 10
+#define feedbackPin A0
 #define topIRpin A1
 #define frontIRpin A2
 #define greenLEDpin 12
 #define redLEDpin 13
 #define servo_open 0
-#define servo_close 100
-#define servo_up 180
+#define servo_close 120
+#define frontIRthres 22
+#define topIRthres 50
+#define lower_threshold 7
+#define higher_threshold 8
+
+
+#define blink_interval 500
 
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
+extern int LEDstate;
 
 //motor initialisation
 extern Adafruit_MotorShield AFMS;
@@ -42,6 +51,8 @@ extern bool done;
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
+extern int previousTime, currentTime;
+extern int LEDstate;
 
 extern bool found_line;
 extern bool at_line;
@@ -106,15 +117,15 @@ void lineFollowing();
 void lineSensorsRead();
 void getOrientation();
 void directionToGoal();
-int topIRBlocked(float threshold);
-int frontIRBlocked(float threshold);
+int topIRBlocked();
+int frontIRBlocked();
 float UltrasonicDistance();
 void tunnel();
 void diff_block();
 
 void startRoutine();
 void getToLine();
-
+void LEDswitch();
 
 bool switch_pushed();
 

@@ -1,7 +1,5 @@
 #include "header.h"
 
-#define lower_threshold 7
-#define higher_threshold 9
 int tunnel_state = 0; //0 is straight, 1 is too close, 2 is too far
 int previous_tunnel_state = 100;
 
@@ -79,7 +77,7 @@ void directionToGoal() {
 }
 
 void tunnel() {
-	while (topIRBlocked(50.0)) {
+	while (topIRBlocked()) {
 		float distance = UltrasonicDistance();
 
 		if (lower_threshold < distance < higher_threshold) {

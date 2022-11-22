@@ -7,7 +7,7 @@ Servo servo;
 int feedbackPin = A0;
 float vol, avg, sum;
 float threshold_coarse = 7;
-float threshold_dense = 30;
+float threshold_dense = 25;
 
 void setup() {
   Serial.begin(9600);
@@ -17,8 +17,8 @@ void setup() {
 void loop() {
   servo.write(0); //relaxed position
   delay(3000);
-  servo.write(180); //grabbed position
-  delay(2000);
+  servo.write(120); //grabbed position
+  delay(5000);
   sum = 0;
   for(int i = 1; i <= 50; i++){
     vol = analogRead(feedbackPin);

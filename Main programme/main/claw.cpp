@@ -2,15 +2,14 @@
 
 Servo servo;
 float vol, avg, sum;
-#define feedbackPin A0
 #define threshold_coarse 7
 #define threshold_dense 30
 
 void diff_block() {
 	servo.write(servo_open); //relaxed position
-	delay(200);
+	delay(1000);
 	servo.write(servo_close); //grabbed position
-	delay(2000);
+	delay(5000);
 	sum = 0;
 	for (int i = 1; i <= 50; i++) {
 		vol = analogRead(feedbackPin);
@@ -34,13 +33,12 @@ void diff_block() {
 	}
 	else {
 		Serial.println("No block detected");
-		diff_block();
 	}
 }
 
 void grab() {
 	while (true) {
-		if (frontIRBlocked(5.0)) {
+		if (frontIRBlocked()) {
 			halt();
 			diff_block();
 			forward();
@@ -50,7 +48,7 @@ void grab() {
 }
 
 void drop() {
-	servo.write(servo_up);
+	servo.write(servo_open);
 	digitalWrite(redLEDpin, LOW);
 	digitalWrite(greenLEDpin, LOW);
 	delay(3000);

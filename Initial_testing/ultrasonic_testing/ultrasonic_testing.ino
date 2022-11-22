@@ -1,9 +1,9 @@
-#define echoPin 3 // attach pin D2 Arduino to pin Echo of HC-SR04
-#define trigPin 2 //attach pin D3 Arduino to pin Trig of HC-SR04
+#define echoPin 8 // attach pin D2 Arduino to pin Echo of HC-SR04
+#define trigPin 9 //attach pin D3 Arduino to pin Trig of HC-SR04
 
 // defines variables
 long duration; // variable for the duration of sound wave travel
-int distance; // variable for the distance measurement
+float distance; // variable for the distance measurement
 
 void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
