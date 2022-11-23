@@ -2,6 +2,10 @@
 
 int tunnel_state = 0; //0 is straight, 1 is too close, 2 is too far
 int previous_tunnel_state = 100;
+float ref = 7.5;
+int Kp = 25;
+float error = 0;
+float error_bound = 0.2;
 
 void at_node() {
 	Serial.println("**** REACHED NODE ****");
@@ -11,7 +15,7 @@ void at_node() {
 }
 
 void lineFollowing() {
-  
+
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
 		switch (orientation) {
@@ -58,7 +62,9 @@ void lineFollowing() {
 				}
 			} else if (timer.hasPassed(3)) {
 				at_node();
-			}
+			} else {
+        forward();
+      }
 			break;
 		case 16:
       //tunnel
@@ -87,32 +93,26 @@ void directionToGoal() {
 }
 
 void tunnel() {
+  forward();
+  delay(500);
 	while (topIRBlocked()) {
 		float distance = UltrasonicDistance();
-
-		if (lower_threshold < distance < higher_threshold) {
-			tunnel_state = 0;
-		}
-		else if (distance < lower_threshold) {
-			tunnel_state = 1;
-		}
-		else if (distance > higher_threshold) {
-			tunnel_state = 2;
-		}
-		if (tunnel_state != previous_tunnel_state) {
-			previous_tunnel_state = tunnel_state;
-			switch (tunnel_state) {\
-
-			case 0:
-				forward();
-				break;
-			case 1:
-				leftAdjust();
-				break;
-			case 2:
-				rightAdjust();
-				break;
-			}
-		}
+    error = distance - ref;
+    if(error < - error_bound){
+      LeftMotor->setSpeed(255);
+	    RightMotor->setSpeed(255 - Kp * error);
+      LeftMotor->run(FORWARD);
+	    RightMotor->run(FORWARD);
+    }
+    else if(error > error_bound){
+      LeftMotor->setSpeed(255 + Kp * error);
+	    RightMotor->setSpeed(255);
+      LeftMotor->run(FORWARD);
+	    RightMotor->run(FORWARD);
+    }
+    else{
+      forward();
+    }
 	}
+  timer.restart();
 }

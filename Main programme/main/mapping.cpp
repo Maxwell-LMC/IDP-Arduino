@@ -68,7 +68,7 @@ void linkedList::next_node_function_run() {
 		delay(500);
 	}
   else if(current == TUNNEL){
-    tunnel();
+    node_function();
   }
 	else {
 		forward();

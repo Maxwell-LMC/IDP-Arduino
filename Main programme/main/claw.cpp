@@ -2,8 +2,8 @@
 
 Servo servo;
 float vol, avg, sum;
-#define threshold_coarse 7
-#define threshold_dense 30
+#define threshold_coarse 0
+#define threshold_dense 5
 
 void diff_block() {
 	servo.write(servo_open); //relaxed position

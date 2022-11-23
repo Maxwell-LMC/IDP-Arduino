@@ -13,10 +13,10 @@ void pickup1or3() {
 	forward();
 	delay(650);
 	if (CURRENT_DIRECTION == CLOCKWISE) {
-		left90();
+		right90();
 	}
 	else {
-		right90();
+		left90();
 	}
 	forward();
 	delay(500);
@@ -63,7 +63,7 @@ void dropoffRedOrGreen() {
 	drop();
   digitalWrite(motionLEDpin, HIGH);
 	backward();
-	delay(800);
+	delay(900);
 	uTurn();
 	pickupOrder.next_goal();
 	directionToGoal();

@@ -22,7 +22,7 @@
 #define greenLEDpin 12
 #define redLEDpin 13
 #define servo_open 0
-#define servo_close 120
+#define servo_close 160
 #define frontIRthres 22
 #define topIRthres 50
 #define lower_threshold 7
