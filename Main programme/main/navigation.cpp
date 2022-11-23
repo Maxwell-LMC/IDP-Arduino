@@ -19,10 +19,10 @@ void lineFollowing() {
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
 		switch (orientation) {
-		default:
+		/*default:
 			Serial.println("Not a recognised orientation");
 			Serial.println(orientation);
-			break;
+			break;*/
 
 		case 0:
 			// straight 0000
@@ -56,6 +56,7 @@ void lineFollowing() {
 		case 3:
 			//right branch 0011
 		case 16:
+		default:
 			// tunnel
 			if ((board.current_node().name == RED_SQUARE && board.current_node_show_directional_next() == PICKUP3) ||
 				(board.current_node().name == PICKUP3 && board.current_node_show_directional_next() == RED_SQUARE)) {

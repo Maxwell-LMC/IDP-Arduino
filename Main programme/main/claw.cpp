@@ -29,11 +29,13 @@ void diff_block() {
 		Serial.println("Result: Dense");
 		GOAL = RED_SQUARE;
 		digitalWrite(redLEDpin, HIGH);
+		delay(5100);
 	}
 	else if ((sum / 50) > threshold_coarse) {
 		Serial.println("Result: Coarse");                                                                                     
 		GOAL = GREEN_SQUARE;
 		digitalWrite(greenLEDpin, HIGH);
+		delay(5100);
 	}
 	else {
 		Serial.println("No block detected");

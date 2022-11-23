@@ -11,7 +11,7 @@ int pickupOrderGenerator::goal_zero() {
 
 void pickup1or3() {
 	forward();
-	delay(650);
+	delay(750);
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
 	}
@@ -27,10 +27,10 @@ void pickup1or3() {
 	delay(500);
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
-		right90();
+		left90();
 	}
 	else {
-		left90();
+		right90();
 	}
 }
 
@@ -63,7 +63,7 @@ void dropoffRedOrGreen() {
 	drop();
 	digitalWrite(motionLEDpin, HIGH);
 	backward();
-	delay(900);
+	delay(950);
 	uTurn();
 	pickupOrder.next_goal();
 	directionToGoal();
