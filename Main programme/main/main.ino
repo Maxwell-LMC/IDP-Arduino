@@ -27,7 +27,6 @@ void setup() {
 
 void robotMain() {
 	servo.write(servo_open);
-	delay(200);
 	GOAL = pickupOrder.goal_zero();
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
