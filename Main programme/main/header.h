@@ -15,6 +15,7 @@
 #define lineRRpin 4
 #define ultrasonic_echopin 8
 #define ultrasonic_trigpin 9
+#define motionLEDpin 11
 #define feedbackPin A0
 #define topIRpin A1
 #define frontIRpin A2

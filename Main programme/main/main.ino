@@ -23,6 +23,7 @@ void setup() {
 	toggleSwitch.setDebounceTime(50);
 	pinMode(greenLEDpin, OUTPUT);
 	pinMode(redLEDpin, OUTPUT);
+  pinMode(motionLEDpin, OUTPUT);
 }
 
 void robotMain() {

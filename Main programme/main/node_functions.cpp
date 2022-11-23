@@ -22,6 +22,7 @@ void pickup1or3() {
 	delay(500);
 	halt();
 	grab();
+  digitalWrite(motionLEDpin, HIGH);
 	backward();
 	delay(500);
 	directionToGoal();
@@ -37,6 +38,7 @@ void pickup2() {
 	forward();
 	halt();
 	grab();
+  digitalWrite(motionLEDpin, HIGH);
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
@@ -59,6 +61,7 @@ void dropoffRedOrGreen() {
 	delay(2200);
 	halt();
 	drop();
+  digitalWrite(motionLEDpin, HIGH);
 	backward();
 	delay(800);
 	uTurn();

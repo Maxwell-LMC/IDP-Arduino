@@ -56,6 +56,7 @@ void getToLine() {
 }
 
 void startRoutine() {
+  digitalWrite(motionLEDpin, HIGH);
 	found_line = false;
 	at_line = false;
 	forward();

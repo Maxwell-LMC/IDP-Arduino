@@ -11,6 +11,7 @@ void at_node() {
 }
 
 void lineFollowing() {
+  
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
 		switch (orientation) {
@@ -100,7 +101,8 @@ void tunnel() {
 		}
 		if (tunnel_state != previous_tunnel_state) {
 			previous_tunnel_state = tunnel_state;
-			switch (tunnel_state) {
+			switch (tunnel_state) {\
+
 			case 0:
 				forward();
 				break;
