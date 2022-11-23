@@ -41,7 +41,7 @@ Node linkedList::current_node() {
 	return list[current];
 }
 
-Node linkedList::current_node_show_directional_next(){
+int linkedList::current_node_show_directional_next(){
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		return list[current].next;
 	}
