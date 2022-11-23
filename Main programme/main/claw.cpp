@@ -31,7 +31,7 @@ void diff_block() {
 		digitalWrite(redLEDpin, HIGH);
 	}
 	else if ((sum / 50) > threshold_coarse) {
-		Serial.println("Result: Coarse");
+		Serial.println("Result: Coarse");                                                                                     
 		GOAL = GREEN_SQUARE;
 		digitalWrite(greenLEDpin, HIGH);
 	}
@@ -40,7 +40,7 @@ void diff_block() {
 		GOAL = GREEN_SQUARE;
 	}
 }
-
+                                            
 void grab() {
 	while (true) {
 		if (frontIRBlocked()) {
