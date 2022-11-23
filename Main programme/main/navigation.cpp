@@ -77,7 +77,7 @@ void lineFollowing() {
 }
 
 void directionToGoal() {
-	if (GOAL == START_SQUARE) {
+	/*if (GOAL == START_SQUARE) {
 		if (board.current > board.length / 2) {
 			CURRENT_DIRECTION = CLOCKWISE;
 		}
@@ -90,8 +90,11 @@ void directionToGoal() {
 	}
 	else {
 		CURRENT_DIRECTION = CLOCKWISE;
-	}
+	}*/
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
+	if (board.current_node().name == RED_SQUARE && GOAL == START_SQUARE) {
+		CURRENT_DIRECTION = CLOCKWISE;
+	}
 }
 
 void tunnel() {
