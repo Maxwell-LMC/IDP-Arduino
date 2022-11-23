@@ -41,6 +41,15 @@ Node linkedList::current_node() {
 	return list[current];
 }
 
+Node linkedList::current_node_show_directional_next(){
+	if (CURRENT_DIRECTION == CLOCKWISE) {
+		return list[current].next;
+	}
+	else if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
+		return list[current].previous;
+	}
+}
+
 void linkedList::node_function() {
 	nodeFunctions(list[current].name);
 }

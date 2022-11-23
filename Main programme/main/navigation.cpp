@@ -44,7 +44,13 @@ void lineFollowing() {
 			//right branch 0011
 			Serial.println("**** REACHED NODE ****");
 			Serial.println(board.current_node().name);
-			if (timer.hasPassed(3)) {
+			if ((board.current_node.name == RED_SQUARE && board.current_node_show_directional_next() == PICKUP3) ||
+				((board.current_node.name == PICKUP3 && board.current_node_show_directional_next() == RED_SQUARE)) {
+				if (timer.hasPassed(10)) {
+					board.next_node_function_run();
+					timer.restart();
+				}
+			} else if (timer.hasPassed(3)) {
 				board.next_node_function_run();
 				timer.restart();
 			}
@@ -90,15 +96,16 @@ void tunnel() {
 		}
 		if (tunnel_state != previous_tunnel_state) {
 			previous_tunnel_state = tunnel_state;
-			if (tunnel_state == 0) {
+			switch (tunnel_state) {
+			case 0:
 				forward();
-			}
-			else if (tunnel_state == 1) {
+				break;
+			case 1:
 				leftAdjust();
-			}
-			else if (tunnel_state == 2) {
+				break;
+			case 2:
 				rightAdjust();
+				break;
 			}
-		}
 	}
 }

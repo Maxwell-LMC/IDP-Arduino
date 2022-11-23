@@ -76,6 +76,7 @@ public:
 	linkedList();
 
 	Node current_node();
+	Node current_node_show_directional_next();
 	void node_function();
 	void next_node_function_run();
 	Node get_next_node();
