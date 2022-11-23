@@ -63,7 +63,7 @@ void dropoffRedOrGreen() {
 	drop();
 	digitalWrite(motionLEDpin, HIGH);
 	backward();
-	delay(950);
+	delay(1000);
 	uTurn();
 	pickupOrder.next_goal();
 	directionToGoal();
