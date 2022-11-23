@@ -9,7 +9,11 @@ void diff_block() {
 	servo.write(servo_open); //relaxed position
 	delay(1000);
 	servo.write(servo_close); //grabbed position
-	delay(5000);
+	delay(1000);
+  servo.write(servo_open);
+  delay(1000);
+  servo.write(servo_close);
+  delay(3000);
 	sum = 0;
 	for (int i = 1; i <= 50; i++) {
 		vol = analogRead(feedbackPin);
