@@ -3,6 +3,13 @@
 int tunnel_state = 0; //0 is straight, 1 is too close, 2 is too far
 int previous_tunnel_state = 100;
 
+void at_node() {
+	Serial.println("**** REACHED NODE ****");
+	Serial.println(board.current_node_show_directional_next());
+	board.next_node_function_run();
+	timer.restart();
+}
+
 void lineFollowing() {
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
@@ -42,17 +49,14 @@ void lineFollowing() {
 			//left branch 1100
 		case 3:
 			//right branch 0011
-			Serial.println("**** REACHED NODE ****");
-			Serial.println(board.current_node().name);
 			if ((board.current_node().name == RED_SQUARE && board.current_node_show_directional_next() == PICKUP3) ||
 				(board.current_node().name == PICKUP3 && board.current_node_show_directional_next() == RED_SQUARE)) {
 				if (timer.hasPassed(10)) {
-					board.next_node_function_run();
-					timer.restart();
+					Serial.println("PASSED RAMP");
+					at_node();
 				}
 			} else if (timer.hasPassed(3)) {
-				board.next_node_function_run();
-				timer.restart();
+				at_node();
 			}
 			break;
 		case 16:
