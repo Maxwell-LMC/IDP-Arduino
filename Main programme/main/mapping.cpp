@@ -41,7 +41,7 @@ Node linkedList::current_node() {
 	return list[current];
 }
 
-int linkedList::current_node_show_directional_next(){
+int linkedList::current_node_show_directional_next() {
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		return list[current].next;
 	}
@@ -67,9 +67,9 @@ void linkedList::next_node_function_run() {
 		forward();
 		delay(500);
 	}
-  else if(current == TUNNEL){
-    node_function();
-  }
+	else if (current == TUNNEL) {
+		node_function();
+	}
 	else {
 		forward();
 	}

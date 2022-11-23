@@ -60,14 +60,16 @@ void lineFollowing() {
 					Serial.println("PASSED RAMP");
 					at_node();
 				}
-			} else if (timer.hasPassed(3)) {
+			}
+			else if (timer.hasPassed(3)) {
 				at_node();
-			} else {
-        forward();
-      }
+			}
+			else {
+				forward();
+			}
 			break;
 		case 16:
-      //tunnel
+			//tunnel
 			board.next_node_function_run();
 			break;
 
@@ -93,38 +95,28 @@ void directionToGoal() {
 }
 
 void tunnel() {
+	forward();
+	delay(500);
 	Serial.println("RUNNING TUNNEL");
 	while (topIRBlocked() == 1) {
 		float distance = UltrasonicDistance();
-		Serial.println(distance);
-
-		if (lower_threshold < distance < higher_threshold) {
-			tunnel_state = 0;
+		error = distance - ref;
+		if (error < -error_bound) {
+			LeftMotor->setSpeed(255);
+			RightMotor->setSpeed(255 - Kp * error);
+			LeftMotor->run(FORWARD);
+			RightMotor->run(FORWARD);
 		}
-		else if (distance < lower_threshold) {
-			tunnel_state = 1;
+		else if (error > error_bound) {
+			LeftMotor->setSpeed(255 + Kp * error);
+			RightMotor->setSpeed(255);
+			LeftMotor->run(FORWARD);
+			RightMotor->run(FORWARD);
 		}
-		else if (distance > higher_threshold) {
-			tunnel_state = 2;
-		}
-		if (tunnel_state != previous_tunnel_state) {
-			Serial.println(tunnel_state);
-			previous_tunnel_state = tunnel_state;
-			switch (tunnel_state) {
-			default:
-				Serial.println("forward");
-				forward();
-				break;
-			case 1:
-				Serial.println("left");
-				leftAdjust();
-				break;
-			case 2:
-				Serial.println("right");
-				rightAdjust();
-				break;
-			}
+		else {
+			forward();
 		}
 	}
+	timer.restart();
 	Serial.println("TUNNEL DONE");
 }
