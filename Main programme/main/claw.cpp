@@ -41,7 +41,6 @@ void grab() {
 		if (frontIRBlocked()) {
 			halt();
 			diff_block();
-			forward();
 			break;
 		}
 	}
