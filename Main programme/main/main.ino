@@ -8,7 +8,6 @@ linkedList board;
 int GOAL = START_SQUARE;
 DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
 pickupOrderGenerator pickupOrder;
-bool done = false;
 
 Chrono timer(Chrono::SECONDS);
 
@@ -23,7 +22,7 @@ void setup() {
 	toggleSwitch.setDebounceTime(50);
 	pinMode(greenLEDpin, OUTPUT);
 	pinMode(redLEDpin, OUTPUT);
-  pinMode(motionLEDpin, OUTPUT);
+	pinMode(motionLEDpin, OUTPUT);
 }
 
 void robotMain() {
@@ -31,7 +30,7 @@ void robotMain() {
 	GOAL = pickupOrder.goal_zero();
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 	startRoutine();
-	while (!done) {
+	while (true) {
 		lineSensorsRead();
 		getOrientation();
 		lineFollowing();

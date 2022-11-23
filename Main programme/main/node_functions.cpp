@@ -22,7 +22,7 @@ void pickup1or3() {
 	delay(500);
 	halt();
 	grab();
-  digitalWrite(motionLEDpin, HIGH);
+	digitalWrite(motionLEDpin, HIGH);
 	backward();
 	delay(500);
 	directionToGoal();
@@ -38,7 +38,7 @@ void pickup2() {
 	forward();
 	halt();
 	grab();
-  digitalWrite(motionLEDpin, HIGH);
+	digitalWrite(motionLEDpin, HIGH);
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
 		right90();
@@ -58,10 +58,10 @@ void dropoffRedOrGreen() {
 		right90();
 	}
 	forward();
-	delay(2200);
+	delay(2100);
 	halt();
 	drop();
-  digitalWrite(motionLEDpin, HIGH);
+	digitalWrite(motionLEDpin, HIGH);
 	backward();
 	delay(900);
 	uTurn();
@@ -74,6 +74,8 @@ void nodeFunctions(int node) {
 	switch (node) {
 	case START_SQUARE:
 		Serial.println("start square");
+		forward();
+		delay(670);
 		if (CURRENT_DIRECTION == CLOCKWISE) {
 			left90();
 		}
@@ -81,9 +83,9 @@ void nodeFunctions(int node) {
 			right90();
 		}
 		forward();
-		delay(500);
+		delay(2200);
 		halt();
-		done = true;
+		while (true) {};
 		break;
 	case GREEN_SQUARE:
 		Serial.println("green square");

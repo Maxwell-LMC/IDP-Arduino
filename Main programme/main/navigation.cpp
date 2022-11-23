@@ -23,6 +23,7 @@ void lineFollowing() {
 			Serial.println("Not a recognised orientation");
 			Serial.println(orientation);
 			break;
+
 		case 0:
 			// straight 0000
 			forward();
@@ -54,6 +55,8 @@ void lineFollowing() {
 			//left branch 1100
 		case 3:
 			//right branch 0011
+		case 16:
+			// tunnel
 			if ((board.current_node().name == RED_SQUARE && board.current_node_show_directional_next() == PICKUP3) ||
 				(board.current_node().name == PICKUP3 && board.current_node_show_directional_next() == RED_SQUARE)) {
 				if (timer.hasPassed(10)) {
@@ -68,11 +71,6 @@ void lineFollowing() {
 				forward();
 			}
 			break;
-		case 16:
-			//tunnel
-			board.next_node_function_run();
-			break;
-
 		}
 	}
 }
@@ -92,6 +90,7 @@ void directionToGoal() {
 	else {
 		CURRENT_DIRECTION = CLOCKWISE;
 	}
+	CURRENT_DIRECTION = ANTI_CLOCKWISE;
 }
 
 void tunnel() {

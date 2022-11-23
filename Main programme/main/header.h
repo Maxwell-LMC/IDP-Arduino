@@ -48,7 +48,6 @@ enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 
 
-extern bool done;
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
@@ -90,7 +89,8 @@ void toLine();
 
 class pickupOrderGenerator {
 private:
-	int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
+	// int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
+  int order_list[2]{ PICKUP2, START_SQUARE};
 	int current = 0;
 public:
 	void next_goal();
