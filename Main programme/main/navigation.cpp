@@ -65,7 +65,7 @@ void lineFollowing() {
 					at_node();
 				}
 			}
-			else if (timer.hasPassed(3)) {
+			else if (timer.hasPassed(2)) {
 				at_node();
 			}
 			else {

@@ -58,7 +58,7 @@ void uTurn() {
 	LeftMotor->run(FORWARD);
 	RightMotor->run(BACKWARD);
   timer.restart();
-  while (!timer.hasPassed(2.7)){};
+  while (!timer.hasPassed(3)){};
 	int orientations[3] = { 1, 2, 0 };
 	for (int i = 0; i < 3; i++) {
 		while (orientation != orientations[i]) {

@@ -89,8 +89,8 @@ void toLine();
 
 class pickupOrderGenerator {
 private:
-	// int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
-	int order_list[2]{PICKUP3, START_SQUARE};
+	int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
+	// int order_list[2]{PICKUP3, START_SQUARE};
 	int current = 0;
 public:
 	void next_goal();
