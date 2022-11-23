@@ -12,6 +12,7 @@ void right90() {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
+			Serial.print(orientation);
 		}
 	}
 	LeftMotor->run(RELEASE);
@@ -28,6 +29,7 @@ void left90() {
 		while (orientation != orientations[i]) {
 			lineSensorsRead();
 			getOrientation();
+			Serial.print(orientation);
 		}
 	}
 	LeftMotor->run(RELEASE);

@@ -39,10 +39,10 @@ void pickup2() {
 	grab();
 	directionToGoal();
 	if (CURRENT_DIRECTION == CLOCKWISE) {
-		left90();
+		right90();
 	}
 	else {
-		right90();
+		forward();
 	}
 }
 
