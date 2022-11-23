@@ -8,7 +8,6 @@ int lineRRvalue = 0;
 int orientation = 0;
 int previous_orientation = 100;
 long duration;
-float distance;
 
 void lineSensorsRead() {
 	// module to read from line sensors
@@ -45,7 +44,7 @@ float UltrasonicDistance() {
 	// Reads the echoPin, returns the sound wave travel time in microseconds
 	duration = pulseIn(ultrasonic_echopin, HIGH);
 	// Calculating the distance
-	distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
+	float distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
 	// Displays the distance on the Serial Monitor
 	return distance;
 }

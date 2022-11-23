@@ -1,7 +1,7 @@
 #include "header.h"
 
 int tunnel_state = 0; //0 is straight, 1 is too close, 2 is too far
-int previous_tunnel_state = 100;
+int previous_tunnel_state = 0;
 
 void at_node() {
 	Serial.println("**** REACHED NODE ****");
@@ -86,8 +86,10 @@ void directionToGoal() {
 }
 
 void tunnel() {
-	while (topIRBlocked()) {
+	Serial.println("RUNNING TUNNEL");
+	while (topIRBlocked() == 1) {
 		float distance = UltrasonicDistance();
+		Serial.println(distance);
 
 		if (lower_threshold < distance < higher_threshold) {
 			tunnel_state = 0;
@@ -99,18 +101,23 @@ void tunnel() {
 			tunnel_state = 2;
 		}
 		if (tunnel_state != previous_tunnel_state) {
+			Serial.println(tunnel_state);
 			previous_tunnel_state = tunnel_state;
 			switch (tunnel_state) {
-			case 0:
+			default:
+				Serial.println("forward");
 				forward();
 				break;
 			case 1:
+				Serial.println("left");
 				leftAdjust();
 				break;
 			case 2:
+				Serial.println("right");
 				rightAdjust();
 				break;
 			}
 		}
 	}
+	Serial.println("TUNNEL DONE");
 }
