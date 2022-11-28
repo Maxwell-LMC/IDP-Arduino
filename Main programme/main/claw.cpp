@@ -42,7 +42,13 @@ void diff_block() {
 }
                                             
 void grab() {
-  diff_block();
+	while (true) {
+		if (frontIRBlocked()) {
+			halt();
+			diff_block();
+			break;
+		}
+	}
 }
 
 void drop() {
