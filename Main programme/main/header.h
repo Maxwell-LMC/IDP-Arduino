@@ -51,7 +51,7 @@ extern Chrono start_timer;
 
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
-
+const int board_nodes_time_to_start[] = { 5, 15, 20, 25, 30, 25, 15 };
 
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
@@ -66,6 +66,7 @@ public:
 	board_nodes name = START_SQUARE;
 	int previous = NULL;
 	int next = NULL;
+	int time_to_start = 30;
 };
 
 // linked list class

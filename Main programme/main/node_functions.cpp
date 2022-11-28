@@ -62,6 +62,8 @@ void dropoffRedOrGreen() {
 	delay(100);
 	rightAdjust();
 	delay(50 * droppedOffBlocks++);
+	forward();
+	delay(300);
 	halt();
 	drop();
 	digitalWrite(motionLEDpin, HIGH);

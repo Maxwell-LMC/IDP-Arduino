@@ -28,7 +28,6 @@ void setup() {
 }
 
 void robotMain() {
-	start_timer.restart();
 	servo.write(servo_open);
 	GOAL = pickupOrder.goal_zero();
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;
@@ -37,12 +36,22 @@ void robotMain() {
 		lineSensorsRead();
 		getOrientation();
 		lineFollowing();
+		if (switch_pushed()) {
+			break;
+		}
 	}
 }
 
 void loop() {
 	// put your main code here, to run repeatedly:
-	while (!switch_pushed()) {}
-	Serial.println("START");
-	robotMain();
+	bool first_start = true;
+	while (true) {
+		while (!switch_pushed()) {}
+		if (first_start) {
+			start_timer.restart();
+			first_start = false;
+		}
+		Serial.println("START");
+		robotMain();
+	}
 }

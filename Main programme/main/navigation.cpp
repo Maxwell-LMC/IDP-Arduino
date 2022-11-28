@@ -6,13 +6,13 @@ float ref = 8.5;
 int Kp = 25;
 float error = 0;
 float error_bound = 0.2;
-int node_to_start_square_time = 30;
 
 void at_node() {
 	Serial.println("**** REACHED NODE ****");
 	Serial.println(board.current_node_show_directional_next());
 
-	if (start_timer.hasPassed(300 - node_to_start_square_time)) {
+	if (start_timer.hasPassed(300 - board.list[board.current_node_show_directional_next()].time_to_start)) {
+		board.get_next_node();
 		GOAL = START_SQUARE;
 		int previous_direction = CURRENT_DIRECTION;
 		directionToGoal();

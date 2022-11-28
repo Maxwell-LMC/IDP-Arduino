@@ -3,6 +3,7 @@
 linkedList::linkedList() {
 	for (int i = 0; i < length; i++) {
 		list[i].name = board_nodes_list[i];
+		list[i].time_to_start = board_nodes_time_to_start[i];
 		if (i == 0) {
 			list[i].previous = length - 1;
 		}
