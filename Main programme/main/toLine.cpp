@@ -36,38 +36,14 @@ void left90() {
 	RightMotor->run(RELEASE);
 }
 
-void uTurnOld() {
-	LeftMotor->setSpeed(255);
-	RightMotor->setSpeed(255);
-	LeftMotor->run(FORWARD);
-	RightMotor->run(BACKWARD);
-	int orientations[6] = { 1, 2, 0, 1, 2, 0 };
-	for (int i = 0; i < 6; i++) {
-		while (orientation != orientations[i]) {
-			lineSensorsRead();
-			getOrientation();
-		}
-	}
-	LeftMotor->run(RELEASE);
-	RightMotor->run(RELEASE);
-}
-
 void uTurn() {
 	LeftMotor->setSpeed(255);
 	RightMotor->setSpeed(255);
 	LeftMotor->run(FORWARD);
 	RightMotor->run(BACKWARD);
-  timer.restart();
-  while (!timer.hasPassed(3)){};
-	int orientations[3] = { 1, 2, 0 };
-	for (int i = 0; i < 3; i++) {
-		while (orientation != orientations[i]) {
-			lineSensorsRead();
-			getOrientation();
-		}
-	}
-	LeftMotor->run(RELEASE);
-	RightMotor->run(RELEASE);
+	delay(3000);
+	halt();
+	digitalWrite(motionLEDpin, HIGH);
 }
 
 void toLine() {
@@ -79,6 +55,10 @@ void toLine() {
 		getOrientation();
 		getToLine();
 	}
+}
+
+void toLineTurn(){
+	toLine();
 	if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
 		// turn right
 		right90();

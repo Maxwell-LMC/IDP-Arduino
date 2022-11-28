@@ -2,14 +2,25 @@
 
 int tunnel_state = 0; //0 is straight, 1 is too close, 2 is too far
 int previous_tunnel_state = 100;
-float ref = 7.5;
+float ref = 8.5;
 int Kp = 25;
 float error = 0;
 float error_bound = 0.2;
+int node_to_start_square_time = 30;
 
 void at_node() {
 	Serial.println("**** REACHED NODE ****");
 	Serial.println(board.current_node_show_directional_next());
+
+	if (start_timer.hasPassed(300 - node_to_start_square_time)) {
+		GOAL = START_SQUARE;
+		int previous_direction = CURRENT_DIRECTION;
+		directionToGoal();
+		if (previous_direction != CURRENT_DIRECTION) {
+			right90();
+		}
+	}
+
 	board.next_node_function_run();
 	timer.restart();
 }
@@ -77,7 +88,7 @@ void lineFollowing() {
 }
 
 void directionToGoal() {
-	/*if (GOAL == START_SQUARE) {
+	if (GOAL == START_SQUARE) {
 		if (board.current > board.length / 2) {
 			CURRENT_DIRECTION = CLOCKWISE;
 		}
@@ -90,11 +101,13 @@ void directionToGoal() {
 	}
 	else {
 		CURRENT_DIRECTION = CLOCKWISE;
-	}*/
-	CURRENT_DIRECTION = ANTI_CLOCKWISE;
-	if (board.current_node().name == RED_SQUARE && GOAL == START_SQUARE) {
-		CURRENT_DIRECTION = CLOCKWISE;
 	}
+	if (droppedOffBlocks == 0) {
+		CURRENT_DIRECTION = ANTI_CLOCKWISE;
+	}
+	/*if (board.current_node().name == RED_SQUARE && GOAL == START_SQUARE) {
+		CURRENT_DIRECTION = CLOCKWISE;
+	}*/
 }
 
 void tunnel() {

@@ -45,7 +45,7 @@ void leftAdjust() {
 }
 
 void halt() {
-  digitalWrite(motionLEDpin, LOW);
+	digitalWrite(motionLEDpin, LOW);
 	stopMotors();
 }
 

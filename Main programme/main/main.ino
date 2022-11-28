@@ -8,8 +8,10 @@ linkedList board;
 int GOAL = START_SQUARE;
 DIRECTION CURRENT_DIRECTION = ANTI_CLOCKWISE;
 pickupOrderGenerator pickupOrder;
+int droppedOffBlocks = 0;
 
 Chrono timer(Chrono::SECONDS);
+Chrono start_timer(Chrono::SECONDS);
 
 void setup() {
 	Serial.begin(9600);
@@ -26,6 +28,7 @@ void setup() {
 }
 
 void robotMain() {
+	start_timer.restart();
 	servo.write(servo_open);
 	GOAL = pickupOrder.goal_zero();
 	CURRENT_DIRECTION = ANTI_CLOCKWISE;

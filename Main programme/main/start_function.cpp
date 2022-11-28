@@ -41,7 +41,7 @@ void getToLine() {
 			break;
 
 		case 7:
-		case 13:
+		case 14:
 		case 15:
 			// found line 1111
 			if (found_line) {
@@ -55,17 +55,16 @@ void getToLine() {
 	}
 }
 
+
 void startRoutine() {
-  digitalWrite(motionLEDpin, HIGH);
+	digitalWrite(motionLEDpin, HIGH);
 	found_line = false;
 	at_line = false;
 	forward();
 	while (!at_line) {
-
 		lineSensorsRead();
 		getOrientation();
 		getToLine();
-
 	}
 	if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
 		// turn right

@@ -22,12 +22,14 @@
 #define greenLEDpin 12
 #define redLEDpin 13
 #define servo_open 0
-#define servo_close 160
+#define servo_close 180
 #define frontIRthres 22
 #define topIRthres 50
 #define lower_threshold 7
 #define higher_threshold 8
 #define board_length 7
+#define threshold_coarse 0
+#define threshold_dense 4.85
 
 
 #define blink_interval 500
@@ -36,6 +38,8 @@ extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
 extern int LEDstate;
 
+extern int droppedOffBlocks;
+
 //motor initialisation
 extern Adafruit_MotorShield AFMS;
 extern Servo servo;
@@ -43,6 +47,7 @@ extern ezButton toggleSwitch;
 extern Adafruit_DCMotor* LeftMotor;
 extern Adafruit_DCMotor* RightMotor;
 extern Chrono timer;
+extern Chrono start_timer;
 
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
@@ -86,6 +91,7 @@ public:
 void nodeFunctions(int node);
 void getToLine();
 void toLine();
+void toLineTurn();
 
 class pickupOrderGenerator {
 private:
