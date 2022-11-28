@@ -10,6 +10,7 @@ float error_bound = 0.2;
 void at_node() {
 	Serial.println("**** REACHED NODE ****");
 	Serial.println(board.current_node_show_directional_next());
+	Serial.println(orientation);
 
 	if (start_timer.hasPassed(300 - board.list[board.current_node_show_directional_next()].time_to_start)) {
 		board.get_next_node();
@@ -29,6 +30,7 @@ void lineFollowing() {
 
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
+		Serial.println(orientation);
 		switch (orientation) {
 		/*default:
 			Serial.println("Not a recognised orientation");
@@ -71,7 +73,7 @@ void lineFollowing() {
 			// tunnel
 			if ((board.current_node().name == RED_SQUARE && board.current_node_show_directional_next() == PICKUP3) ||
 				(board.current_node().name == PICKUP3 && board.current_node_show_directional_next() == RED_SQUARE)) {
-				if (timer.hasPassed(10)) {
+				if (timer.hasPassed(15)) {
 					Serial.println("PASSED RAMP");
 					at_node();
 				}
@@ -81,6 +83,7 @@ void lineFollowing() {
 			}
 			else {
 				forward();
+				delay(50);
 			}
 			break;
 		}

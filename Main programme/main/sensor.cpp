@@ -18,6 +18,10 @@ void lineSensorsRead() {
 }
 
 void getOrientation() {
+	/*Serial.print(lineLLvalue);
+	Serial.print(lineLvalue);
+	Serial.print(lineRvalue);
+	Serial.println(lineRRvalue);*/
 	orientation = 16 * topIRBlocked() + 8 * lineLLvalue + 4 * lineLvalue + 2 * lineRvalue + lineRRvalue;
 	orientation = (orientation >= 16) ? 16 : orientation;
 }
@@ -25,13 +29,8 @@ void getOrientation() {
 int topIRBlocked() {
 	float volts = analogRead(topIRpin) * 0.0048828125;
 	float distance = 65 * pow(volts, -1.10);
+	Serial.println(distance);
 	return (distance < topIRthres) ? 1 : 0;
-}
-
-int frontIRBlocked() {
-	float volts = analogRead(frontIRpin) * 0.0048828125;
-	float distance = 65 * pow(volts, -1.10);
-	return (distance < frontIRthres) ? 1 : 0;
 }
 
 float UltrasonicDistance() {

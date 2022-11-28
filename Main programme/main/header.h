@@ -9,30 +9,25 @@
 #include <ezButton.h>
 #include <Chrono.h>
 
-#define lineLpin 3
-#define lineRpin 5
-#define lineLLpin 2
-#define lineRRpin 4
-#define ultrasonic_echopin 8
-#define ultrasonic_trigpin 9
+#define lineLpin 5
+#define lineRpin 3
+#define lineLLpin 4
+#define lineRRpin 2
+#define ultrasonic_echopin 9
+#define ultrasonic_trigpin 8
 #define motionLEDpin 11
 #define feedbackPin A0
 #define topIRpin A1
-#define frontIRpin A2
 #define greenLEDpin 12
 #define redLEDpin 13
 #define servo_open 0
 #define servo_close 180
-#define frontIRthres 22
 #define topIRthres 50
 #define lower_threshold 7
 #define higher_threshold 8
 #define board_length 7
 #define threshold_coarse 0
 #define threshold_dense 4.85
-
-
-#define blink_interval 500
 
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
