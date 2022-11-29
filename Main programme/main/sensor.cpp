@@ -24,15 +24,14 @@ void getOrientation() {
 
 int topIRBlocked() {
 	float volts = analogRead(topIRpin) * 0.0048828125;
-	float distance = 65 * pow(volts, -1.10);
-	return (distance < topIRthres) ? 1 : 0;
+	float sum_distance = 0;
+	for (int i = 0; i < 3; i++) {
+		sum_distance += 65 * pow(volts, -1.10);
+		delay(10);
+	}
+	return (sum_distance < topIRthres*3) ? 1 : 0;
 }
 
-int frontIRBlocked() {
-	float volts = analogRead(frontIRpin) * 0.0048828125;
-	float distance = 65 * pow(volts, -1.10);
-	return (distance < frontIRthres) ? 1 : 0;
-}
 
 float UltrasonicDistance() {
 	digitalWrite(ultrasonic_trigpin, LOW);

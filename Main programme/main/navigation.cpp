@@ -114,7 +114,11 @@ void tunnel() {
 	forward();
 	delay(500);
 	Serial.println("RUNNING TUNNEL");
-	while (topIRBlocked() == 1) {
+	int topIRBlockedCount = 0;
+	while (topIRBlockedCount <= 3) {
+		if (topIRBlocked() != 1) {
+			topIRBlockedCount++;
+		}
 		float distance = UltrasonicDistance();
 		error = distance - ref;
 		if (error < -error_bound) {

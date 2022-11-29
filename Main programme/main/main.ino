@@ -36,22 +36,14 @@ void robotMain() {
 		lineSensorsRead();
 		getOrientation();
 		lineFollowing();
-		if (switch_pushed()) {
-			break;
-		}
 	}
 }
 
 void loop() {
 	// put your main code here, to run repeatedly:
-	bool first_start = true;
-	while (true) {
-		while (!switch_pushed()) {}
-		if (first_start) {
-			start_timer.restart();
-			first_start = false;
-		}
-		Serial.println("START");
-		robotMain();
-	}
+  Serial.println("WAITING FOR BUTTON PRESS");
+	while (!switch_pushed()) {}
+	start_timer.restart();
+	Serial.println("START");
+	robotMain();
 }
