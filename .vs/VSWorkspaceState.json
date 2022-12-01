@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Initial_testing\\IR_distance sensor",
     "\\Main programme",
     "\\Main programme\\main"
   ],
-  "SelectedNode": "\\Main programme\\main\\sensor.cpp",
+  "SelectedNode": "\\Main programme\\main\\mapping.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -81,6 +81,7 @@ void lineFollowing() {
 			}
 			else {
 				forward();
+				delay(120);
 			}
 			break;
 		}

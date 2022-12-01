@@ -63,11 +63,14 @@ void dropoffRedOrGreen() {
 	rightAdjust();
 	delay(50 * droppedOffBlocks++);
 	forward();
-	delay(300);
+	delay(400);
 	halt();
 	drop();
 	digitalWrite(motionLEDpin, HIGH);
+	backward();
+	delay(100);
 	uTurn();
+	digitalWrite(motionLEDpin, HIGH);
 	pickupOrder.next_goal();
 	directionToGoal();
 	toLineTurn();

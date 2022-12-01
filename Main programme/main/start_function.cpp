@@ -7,11 +7,11 @@ void getToLine() {
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
 		switch (orientation) {
-		default:
+		/*default:
 			Serial.println("Not a recognised orientation");
 			Serial.println(orientation);
 			forward();
-			break;
+			break;*/
 		case 0:
 			// straight 0000
 			Serial.println("Straight");
@@ -43,6 +43,7 @@ void getToLine() {
 		case 7:
 		case 14:
 		case 15:
+		default:
 			// found line 1111
 			if (found_line) {
 				at_line = true;

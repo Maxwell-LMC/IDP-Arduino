@@ -25,11 +25,14 @@ void getOrientation() {
 int topIRBlocked() {
 	float volts = analogRead(topIRpin) * 0.0048828125;
 	float sum_distance = 0;
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < IRcount; i++) {
 		sum_distance += 65 * pow(volts, -1.10);
-		delay(10);
 	}
-	return (sum_distance < topIRthres*3) ? 1 : 0;
+	int x = (sum_distance < topIRthres* IRcount) ? 1 : 0;
+	if (x == 1) {
+		Serial.println("IR SENSOR BLOCKED");
+	}
+	return x;
 }
 
 

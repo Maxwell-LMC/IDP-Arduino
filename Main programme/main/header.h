@@ -15,19 +15,21 @@
 #define lineRRpin 2
 #define ultrasonic_echopin 9
 #define ultrasonic_trigpin 8
-#define motionLEDpin 11
+#define motionLEDpin 6
 #define feedbackPin A0
-#define topIRpin A1
+#define topIRpin A3
 #define greenLEDpin 12
 #define redLEDpin 13
 #define servo_open 0
 #define servo_close 180
-#define topIRthres 50
+#define topIRthres 30
 #define lower_threshold 7
 #define higher_threshold 8
 #define board_length 7
 #define threshold_coarse 0
-#define threshold_dense 4.85
+#define threshold_dense 5
+#define IRcount 7
+#define IRLEDpin 6
 
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
@@ -91,7 +93,7 @@ void toLineTurn();
 
 class pickupOrderGenerator {
 private:
-	int order_list[4]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
+	int order_list[5]{PICKUP2, PICKUP3, PICKUP1, START_SQUARE};
 	// int order_list[2]{PICKUP3, START_SQUARE};
 	int current = 0;
 public:
