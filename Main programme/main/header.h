@@ -31,29 +31,35 @@
 #define IRcount 7
 #define IRLEDpin 6
 
+// sensor variables
 extern int lineLLvalue, lineLvalue, lineRvalue, lineRRvalue;
 extern int orientation, previous_orientation;
 extern int LEDstate;
 
 extern int droppedOffBlocks;
 
-//motor initialisation
+//motor, servo and button variables
 extern Adafruit_MotorShield AFMS;
 extern Servo servo;
 extern ezButton toggleSwitch;
 extern Adafruit_DCMotor* LeftMotor;
 extern Adafruit_DCMotor* RightMotor;
+
+// timers
 extern Chrono timer;
 extern Chrono start_timer;
 
+// board node information
 enum board_nodes { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const board_nodes board_nodes_list[] = { START_SQUARE, GREEN_SQUARE, TUNNEL, PICKUP1, PICKUP2, PICKUP3, RED_SQUARE };
 const int board_nodes_time_to_start[] = { 5, 15, 20, 25, 30, 25, 15 };
 
+// goal and direction varviables
 extern int GOAL;
 enum DIRECTION { CLOCKWISE = +1, ANTI_CLOCKWISE = -1 };
 extern DIRECTION CURRENT_DIRECTION;
 
+// start function variables
 extern bool found_line;
 extern bool at_line;
 
@@ -87,21 +93,22 @@ public:
 
 // node functions
 void nodeFunctions(int node);
+
+// functions for getting to the line
 void getToLine();
 void toLine();
 void toLineTurn();
 
 class pickupOrderGenerator {
 private:
-	int order_list[5]{PICKUP2, PICKUP3, PICKUP1, START_SQUARE};
-	// int order_list[2]{PICKUP3, START_SQUARE};
+	int order_list[5]{ PICKUP2, PICKUP3, PICKUP1, START_SQUARE };
 	int current = 0;
 public:
 	void next_goal();
 	int goal_zero();
 };
 
-
+// object definitions
 extern linkedList board;
 extern pickupOrderGenerator pickupOrder;
 
@@ -125,16 +132,20 @@ int topIRBlocked();
 int frontIRBlocked();
 float UltrasonicDistance();
 void tunnel();
-void diff_block();
 
+// start functions
 void startRoutine();
 void getToLine();
 
+// switch functions
 bool switch_pushed();
 
+// servo functions
+void diff_block();
 void grab();
 void drop();
 
+// node functions
 void pickup1or3();
 void pickup2();
 void dropoffRedOrGreen();

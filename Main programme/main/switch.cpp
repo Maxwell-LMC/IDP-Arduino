@@ -1,9 +1,10 @@
 #include "header.h"
 
-ezButton toggleSwitch(7);  // create ezButton object that attach to pin 7;
+// create ezButton object
+ezButton toggleSwitch(7);
 int switch_state;
 
-
+// Checks if the switch has been pushed
 bool switch_pushed() {
 	toggleSwitch.loop(); // MUST call the loop() function first
 	switch_state = toggleSwitch.getState();

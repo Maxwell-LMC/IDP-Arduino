@@ -1,50 +1,40 @@
 #include "header.h"
 
+// variables for getToLine()
 bool found_line = false;
 bool at_line = false;
 
+
+// Using a variation of line following to get from inside a sqaure to the main line
 void getToLine() {
 	if (orientation != previous_orientation) {
 		previous_orientation = orientation;
 		switch (orientation) {
-		/*default:
-			Serial.println("Not a recognised orientation");
-			Serial.println(orientation);
-			forward();
-			break;*/
+			// the robot is straight
 		case 0:
-			// straight 0000
 			Serial.println("Straight");
 			forward();
 			break;
 
+			// the robot needs to turn left
 		case 4:
-			// too far right 0100
 		case 8:
-			// way too far right 1000
 		case 12:
-			// semi way too far right 1100
-
-			// action for case 4, 8 and 12
 			leftAdjust();
 			break;
 
+			// the robot needs to turn right
 		case 2:
-			// too far left 0010
 		case 1:
-			// way too far left 0001
 		case 3:
-			// semi way too far right 0011
-
-			// action for case 1, 2 and 3
 			rightAdjust();
 			break;
 
+			// the robot is at a line
 		case 7:
 		case 14:
 		case 15:
 		default:
-			// found line 1111
 			if (found_line) {
 				at_line = true;
 			}
@@ -57,7 +47,9 @@ void getToLine() {
 }
 
 
+// Uses getToLine() to reach the main line and turn the correct direction
 void startRoutine() {
+	// runs getToLine()
 	digitalWrite(motionLEDpin, HIGH);
 	found_line = false;
 	at_line = false;
@@ -67,12 +59,11 @@ void startRoutine() {
 		getOrientation();
 		getToLine();
 	}
+	// turns the relevant way depending on the desired direction
 	if (CURRENT_DIRECTION == ANTI_CLOCKWISE) {
-		// turn right
 		right90();
 	}
 	else if (CURRENT_DIRECTION == CLOCKWISE) {
-		// turn left
 		left90();
 	}
 	Serial.println("start routine done");
